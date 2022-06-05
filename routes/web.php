@@ -27,7 +27,7 @@ Route::controller(AdminPropertiesController::class)->
     Route::get('create','create');
     Route::post('store','store')->name('store');
     Route::get('edit/{id}','edit');
-    Route::post('update/{id}','update')->name('update');
+    Route::patch('update/{id}','update')->name('update');
     Route::get('delete/{id}','delete')->name('delete');
 });
 
