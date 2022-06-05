@@ -1,3 +1,3 @@
 # dellcreek-app
 Property web application, *MNETI*
-&copy2022
+&copy; 2022
