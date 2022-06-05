@@ -7,7 +7,7 @@
       @apply outline-none border-transparent focus:ring-0 bg-transparent;
     }
     .form-input,.form-invalid{
-      @apply border text-sm border-gray-500 focus:border-gray-700 rounded px-2 py-1 focus:shadow-lg block w-full;
+      @apply border text-sm border-gray-500 focus:border-blue-700 rounded px-2 py-1 focus:shadow-lg block w-full;
     }
     .form-invalid{
       @apply border-red-600 focus:border-red-600

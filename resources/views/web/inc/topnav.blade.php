@@ -1,11 +1,11 @@
 {{-- php --}}
 @php
-    $menu_items = [
-        'about_us' => 'About',
-        'properties' => 'Properties',
-        'sell_property' => 'Sell',
-        'contact' => 'Contact',
-    ]
+$menu_items = [
+'about_us' => 'About',
+'properties' => 'Properties',
+'sell_property' => 'Sell',
+'contact' => 'Contact',
+]
 @endphp
 
 {{-- component ui --}}
@@ -22,26 +22,69 @@
     <ul class="hidden md:flex items-center">
 
         @foreach ($menu_items as $key => $item)
-            <li class="mx-4 font-bold text-lg">
-                <a href="{{ url($key) }}">
-                    {{ $item }}
-                </a>
-            </li>    
+        <li class="mx-4 font-bold text-lg">
+            <a href="{{ url($key) }}">
+                {{ $item }}
+            </a>
+        </li>
         @endforeach
-        
+
     </ul>
     {{-- search, auth & mobile icon--}}
     <div class="flex items-center">
         {{-- search --}}
-        <div class="hidden lg:flex w-64 items-center border border-gray-500 bg-gray-50 hover:bg-gray-100 px-4 py-2 rounded shadow focus-within:shadow-lg">
+        <div
+            class="hidden lg:flex w-64 items-center border border-gray-500 bg-gray-50 hover:bg-gray-100 px-4 py-2 rounded shadow focus-within:shadow-lg">
             <i class="fa-solid fa-magnifying-glass"></i>
             <input type="text" class="ml-4" placeholder="Search properties">
         </div>
         {{-- auth --}}
-        <div class="ml-8 md:mr-0 mr-8">
-            <button class="text-2xl">
+        <div class="dropdown relative ml-8 md:mr-0 mr-8">
+            <button class="text-2xl" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                aria-expanded="false">
                 <i class="fa-solid fa-circle-user"></i>
             </button>
+            {{-- menu --}}
+            <ul class="dropdown-menu
+            min-w-max
+            absolute
+            hidden
+            bg-white
+            text-base
+            z-50
+            float-left
+            py-2
+            list-none
+            text-left
+            rounded-lg
+            shadow-lg
+            mt-1
+            hidden
+            m-0
+            bg-clip-padding
+            border-none" aria-labelledby="dropdownMenuButton1">
+                @guest
+                    <li>
+                        <a href="{{ route('login') }}" class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100" href="#">
+                            <i class="fa-solid fa-arrow-right-to-bracket pr-2"></i>
+                            Login
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('register') }}" class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100" href="#">
+                            <i class="fa-solid fa-user-plus pr-2"></i>
+                            Register
+                        </a>
+                    </li>
+                @else
+                    <li>
+                        <a href="{{ url('/logout') }}" class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100" href="#">
+                            <i class="fa-solid fa-power-off pr-2"></i>
+                            Logout
+                        </a>
+                    </li>   
+                @endguest
+            </ul>
         </div>
         {{-- mobile nav icon --}}
         <button class="md:hidden">
