@@ -32,7 +32,8 @@
                         </a>
                     </div>
                 </div>
-                {{-- image --}}
+
+                {{-- highlighted property image --}}
                 <div class="md:w-1/2 md:pl-10">
                     <a href="#">
                         <div
@@ -49,6 +50,7 @@
                         </div>
                     </a>
                 </div>
+
             </div>
         </div>
     </div>

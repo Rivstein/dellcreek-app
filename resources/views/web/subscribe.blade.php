@@ -1,7 +1,7 @@
 @extends('layouts.web')
 
 @section('page')
-    {{-- subscribe --}}
+{{-- subscribe --}}
 <div class="w-full py-10 bg-yellow-400">
     {{-- title --}}
     <h1 class="text-center text-3xl pt-10 mb-10 font-bold">

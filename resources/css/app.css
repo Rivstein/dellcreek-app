@@ -15,6 +15,9 @@
     label{
       @apply font-bold text-sm;
     }
+    iframe{
+      @apply rounded-lg h-64 w-full shadow-lg
+    } 
     .btn-primary,
     .btn-secondary,
     .btn-success,

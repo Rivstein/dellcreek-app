@@ -15,7 +15,7 @@
         <div class="flex flex-wrap my-5">
 
             {{-- information --}}
-            <div class="md:w-2/3 p-2 px-4 md:px-2">
+            <div class="md:w-2/3 w-full p-2 px-4 md:px-2">
 
                 {{-- details --}}
                 <div class="md:flex justify-between mb-8">
@@ -86,8 +86,8 @@
 
             </div>
 
-            {{-- actions --}}
-            <div class="md:w-1/3 bg-gray-300 p-2">
+            {{-- client actions --}}
+            <div class="md:w-1/3 w-full bg-gray-300 p-2">
 
             </div>
 
@@ -96,7 +96,7 @@
     </div>
 
     {{-- modal --}}
-    @include('web.inc.installmentsModal')
+    @include('web.inc.installments_modal')
     
 @endsection
 
