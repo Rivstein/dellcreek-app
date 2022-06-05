@@ -1,3 +1,3 @@
 # dellcreek-app
 Property web application, *MNETI*
-2022
+&copy2022
