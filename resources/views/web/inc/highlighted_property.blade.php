@@ -1,3 +1,4 @@
+@if ($highlighted)
 <div
     class="transition ease-in-out duration-700 hover:scale-105 mx-2 bg-white rounded-lg drop-shadow-xl hover:drop-shadow-2xl">
     {{-- image --}}
@@ -21,5 +22,11 @@
         </button>
     </div>
 </div>
+@else
+
+No property
+
+@endif
+
 
 
