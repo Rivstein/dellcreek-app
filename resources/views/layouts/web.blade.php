@@ -13,6 +13,9 @@
 
     @yield('page')
 
+    {{-- footer --}}
+    @include('web.inc.footer')
+
 @endsection
 
 @section('appjs')

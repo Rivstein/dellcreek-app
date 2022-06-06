@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CRMController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,8 +20,8 @@ Route::get('/', 'WebPagesController@index');
 Route::get('dashboard','DashboardController@index');
 
 // admin properties route group
-Route::controller(AdminPropertiesController::class)->
-        prefix('admin/properties')->as('admin.propery.')
+Route::controller(AdminPropertiesController::class)
+->prefix('admin/properties')->as('admin.propery.')
 ->group(function () {
     Route::get('manager','index');
     Route::get('property/{id}','show');
@@ -31,13 +32,17 @@ Route::controller(AdminPropertiesController::class)->
     Route::get('delete/{id}','delete')->name('delete');
 });
 
+Route::get('index', 'CRMController@index');
+
+
 // Web Routes
 Route::controller(WebPropertiesController::class)->
         prefix('properties')->as('properties.')
 ->group(function () {
     Route::get('property/{id}','property');
 });
-
+// newsletter 
+Route::post('newsletter','ContactController@store');
 
 Auth::routes();
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
