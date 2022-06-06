@@ -2,7 +2,7 @@
 <div
     class="transition ease-in-out duration-700 hover:scale-105 mx-2 bg-white rounded-lg drop-shadow-xl hover:drop-shadow-2xl">
     {{-- image --}}
-    <a href="#">
+    <a href="{{ url('properties/property/'.$highlighted->id) }}">
         <img src="{{ asset('storage/'.$highlighted->image) }}" class="w-full min-w-full h-64 md:h-96 object-cover rounded-t-lg"
             alt="">
     </a>
