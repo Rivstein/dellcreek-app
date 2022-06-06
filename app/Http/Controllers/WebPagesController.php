@@ -15,7 +15,7 @@ class WebPagesController extends Controller
         $highlighted = HighlightedProperty::latest()->first();
         $description = null;
         
-        if(!$highlighted->active){
+        if($highlighted == null || !$highlighted->active){
             $highlighted = Property::latest()->first();
         }
         else{
