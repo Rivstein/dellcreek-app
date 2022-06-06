@@ -22,7 +22,7 @@ class AdminPropertiesController extends Controller
         $property = Property::find($id);
         $highlighted = HighlightedProperty::latest()->first();
 
-        if($property != $highlighted->property  || !$highlighted->active){
+        if(!$highlighted || $property != $highlighted->property  || !$highlighted->active){
             $highlighted = false;    
         }
 
