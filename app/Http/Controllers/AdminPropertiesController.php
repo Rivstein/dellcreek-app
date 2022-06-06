@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Property;
+use App\Models\HighlightedProperty;
 
 class AdminPropertiesController extends Controller
 {
@@ -19,8 +20,15 @@ class AdminPropertiesController extends Controller
     public function show($id)
     {
         $property = Property::find($id);
+        $highlighted = HighlightedProperty::latest()->first();
+
+        if($property != $highlighted->property  || !$highlighted->active){
+            $highlighted = false;    
+        }
+
         return view('admin.properties.property',compact(
-            'property'
+            'property',
+            'highlighted'
         ));
     }
 

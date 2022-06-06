@@ -22,12 +22,12 @@
                     <div class="flex justify-center md:justify-start">
                         {{-- item --}}
                         <a href="#"
-                            class="bg-blue-600 hover:bg-blue-700 hover:shadow-md mr-3 rounded-md text-white font-bold shadow px-8 py-2">
+                            class="bg-yellow-600 hover:bg-yellow-700 hover:shadow-md mr-3 rounded-md text-white font-bold shadow px-8 py-2">
                             Discover
                         </a>
                         {{-- item --}}
                         <a href="#"
-                            class="bg-white hover:shadow-md hover:shadow-blue-700 ml-3 border-solid border border-blue-600 rounded-md text-blue-600 font-bold shadow px-8 py-2">
+                            class="bg-white hover:shadow-md hover:shadow-yellow-700 ml-3 border-solid border border-yellow-600 rounded-md font-bold shadow px-8 py-2">
                             Sell Property
                         </a>
                     </div>
@@ -35,20 +35,7 @@
 
                 {{-- highlighted property image --}}
                 <div class="md:w-1/2 md:pl-10">
-                    <a href="#">
-                        <div
-                            class="transition ease-in-out duration-700 hover:scale-105 mx-2 bg-white rounded-lg drop-shadow-xl hover:drop-shadow-2xl">
-                            {{-- image --}}
-                            <div>
-                                <img src="{{ asset('img/land/land6.jpg') }}"
-                                    class="w-full min-w-full h-64 md:h-96 object-cover rounded-t-lg" alt="">
-                            </div>
-                            {{-- text --}}
-                            <div class="py-4 px-6">
-                                text
-                            </div>
-                        </div>
-                    </a>
+                    @include('web.inc.highlighted_property')
                 </div>
 
             </div>
@@ -81,7 +68,7 @@
     
     {{-- discover more btn --}}
     <div class="text-center pt-4 pb-20">
-        <a href="#" class="bg-blue-600 hover:bg-blue-700 hover:shadow-lg py-4 px-8 shadow text-white rounded font-bold">
+        <a href="#" class="bg-yellow-600 hover:bg-yellow-700 hover:shadow-lg py-4 px-8 shadow text-white rounded font-bold">
             View more properties
         </a>
     </div>
@@ -118,6 +105,43 @@
                 
             </form>
         </div>   
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+    id="highlightedProperty" tabindex="-1" aria-labelledby="highlightedPropertyLabel" aria-hidden="true">
+    <div class="modal-dialog relative w-auto pointer-events-none">
+        <div
+            class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+            <div
+                class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+                <h5 class="text-xl font-bold leading-normal text-gray-800" id="highlightedPropertyLabel">
+                    Highlighted Property
+                </h5>
+                <button type="button"
+                    class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+                    data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            {{-- body --}}
+            <div class="modal-body relative p-4">
+                
+                @if ($description)
+                    {{ $description }}
+                @else
+                    Default description
+                @endif
+
+            </div>
+            <div
+                class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
+                
+                <a href="#" class="btn-warning">
+                    View property
+                    <i class="pl-2 fa fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 

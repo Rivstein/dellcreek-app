@@ -14,10 +14,24 @@
     <div class="p-4 flex justify-between border-b border-b-gray-500">
         {{-- left --}}
         <div class="flex items-center">
+            {{-- edit --}}
             <a href="{{ url('admin/properties/edit/'.$property->id) }}" class="btn-primary py-1 mx-2">
                 <i class="fa fa-edit pr-2"></i>
                 Edit
             </a>
+            {{-- highlight --}}
+            @if ($highlighted)
+                <button class="mx-2 btn-warning shadow-lg py-1" title="Property highlighted" data-bs-toggle="modal" data-bs-target="#highlightProperty">
+                    <i class="fa fa-star text-green-600 pr-2"></i>
+                    Highlighted
+                </button>
+            @else
+                <button class="mx-2 btn-secondary py-1" data-bs-toggle="modal" data-bs-target="#highlightProperty">
+                    <i class="fa fa-rocket text-yellow-400 pr-2"></i>
+                    Highlight
+                </button>    
+            @endif
+            
         </div>
         {{-- right --}}
         <div class="flex items-center">
@@ -25,7 +39,7 @@
             data-bs-toggle="modal" data-bs-target="#deletePropertyModal"
             >
                 <i class="fa fa-trash pr-2"></i>
-                Delete
+               Delete
             </button>
         </div>
     </div>
@@ -129,11 +143,14 @@
     </div>
 </div>
 
-{{-- modal --}}
+{{-- delete modal --}}
 @include('admin.inc.deletemodal',[
     'id' => 'deletePropertyModal',
     'item' => 'property',
     'url' => url('admin/properties/delete/'.$property->id)
 ])
+
+{{-- highlight modal --}}
+@include('admin.properties.inc.highlight_modal')
 
 @endsection

@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Property extends Model
+class HighlightedProperty extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
     /**
-     * Get the highlighted for the property.
+     * Get the property that owns the highlighted property.
      */
-    public function highlights()
+    public function property()
     {
-        return $this->hasMany(HighlightedProperty::class);
+        return $this->belongsTo(Property::class);
     }
 }

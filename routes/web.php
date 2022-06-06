@@ -30,6 +30,10 @@ Route::controller(AdminPropertiesController::class)->
     Route::patch('update/{id}','update')->name('update');
     Route::get('delete/{id}','delete')->name('delete');
 });
+// highlighted propery routes
+Route::post('highlight_property','HighlightedPropertyController@store')->name('highlight_property');
+Route::patch('highlight_property','HighlightedPropertyController@update')->name('highlight_property');
+Route::post('remove_highlighted/{id}', 'HighlightedPropertyController@remove')->name('remove_highlighted');
 
 // Web Routes
 Route::controller(WebPropertiesController::class)->
