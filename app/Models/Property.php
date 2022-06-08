@@ -18,4 +18,12 @@ class Property extends Model
     {
         return $this->hasMany(HighlightedProperty::class);
     }
+
+    /**
+     * Get the images for the property.
+     */
+    public function images()
+    {
+        return $this->hasMany(PropertyImage::class);
+    }
 }

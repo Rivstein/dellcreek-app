@@ -133,7 +133,46 @@
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                         data-bs-parent="#accordionExample">
                         <div class="accordion-body py-4 px-5">
-                            Images...
+                            
+                            @if (count($property->images))
+
+                                <div class="flex w-full flex-wrap">
+                                    @foreach ($property->images as $image)
+                                        <div class="md:w-1/4 w-full p-2 mb-3">
+                                            <img class="block" src="{{ asset('storage/'.$image->path) }}" alt="">
+                                            <div class="flex">
+                                                {{-- delete--}}
+                                                <button class="delete-img-btn">
+                                                    <i class="fa fa-trash text-red-500"></i>
+                                                </button>
+                                                {{-- confirm delete --}}
+                                                <form action="{{ route('admin.propery.delete_image',['id'=>$image->id, 'property_id'=>$property->id]) }}" method="POST">
+                                                    @csrf 
+                                                    @method('DELETE')
+                                                    <button class="text-xs delete-img-actions ml-2 hidden hover:underline text-red-800">
+                                                        Delete image
+                                                    </button>
+                                                </form>
+                                                {{-- cancel delete --}}
+                                                <button class="text-xs delete-img-actions hidden cancel-img-delete ml-2 hover:underline text-blue-800">
+                                                    Cancel
+                                                </button>    
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>  
+
+                            @else
+                                
+                                <div class="text-center">
+                                    <i class="fa fa-images text-3xl"></i>
+                                    <div>
+                                        No images
+                                    </div>
+                                </div>
+
+                            @endif
+
                         </div>
                     </div>
                 </div>
@@ -153,4 +192,21 @@
 {{-- highlight modal --}}
 @include('admin.properties.inc.highlight_modal')
 
+@endsection
+
+{{-- js --}}
+@section('adminjs')
+    <script>
+        let $delete_img_btn = $('.delete-img-btn')
+        let $cancel_img_delete = $('.cancel-img-delete')
+
+        $delete_img_btn.click(function(){
+            $('.delete-img-actions').hide()
+            $(this).parent().find('.delete-img-actions').show()
+        })
+
+        $cancel_img_delete.click(function(){
+            $('.delete-img-actions').hide()
+        })
+    </script>
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Property;
 use App\Models\HighlightedProperty;
+use App\Models\PropertyImage;
 
 class AdminPropertiesController extends Controller
 {
@@ -64,10 +65,23 @@ class AdminPropertiesController extends Controller
     {
         $this->validator($request);
         $data = $request->all();
+        unset($data['images']);
+
+        // store main image and return path
         $path = $request->file('image')->store('public/properties');
         $data['image'] = explode('public/', $path)[1];
 
         $property = Property::create($data);
+
+        foreach ($request->file('images') as $image) {
+            $path = $image->store('public/properties/images');
+            $storage_path = explode('public/', $path)[1];
+            PropertyImage::create([
+                'property_id' => $property->id,
+                'path' => $storage_path
+            ]);
+        }
+
         return redirect('admin/properties/property/'.$property->id);
     }
 
@@ -95,5 +109,13 @@ class AdminPropertiesController extends Controller
         $property = Property::find($id);
         $property->delete();
         return redirect('admin/properties/manager');
+    }
+
+    // delete property image
+    public function deleteImage(Request $request, $id, $property_id)
+    {
+        $image = PropertyImage::find($id);
+        $image->delete();
+        return redirect('admin/properties/property/'.$property_id);
     }
 }

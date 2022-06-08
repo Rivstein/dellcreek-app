@@ -999,6 +999,9 @@ textarea.form-control.is-invalid {
 .modal.modal-static .modal-dialog {
   transform: scale(1.02);
 }
+.modal-dialog-scrollable {
+  height: calc(100% - 1rem);
+}
 .modal-dialog-scrollable .modal-content {
   max-height: 100%;
   overflow: hidden;
@@ -2606,6 +2609,9 @@ iframe {
 .m-2 {
   margin: 0.5rem;
 }
+.m-4 {
+  margin: 1rem;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -2713,6 +2719,9 @@ iframe {
 .mt-16 {
   margin-top: 4rem;
 }
+.ml-2 {
+  margin-left: 0.5rem;
+}
 .box-content {
   box-sizing: content-box;
 }
@@ -2748,6 +2757,9 @@ iframe {
 }
 .h-10 {
   height: 2.5rem;
+}
+.h-1\/2 {
+  height: 50%;
 }
 .min-h-full {
   min-height: 100%;
@@ -2951,6 +2963,10 @@ iframe {
   --tw-bg-opacity: 1;
   background-color: rgb(234 179 8 / var(--tw-bg-opacity));
 }
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
 .bg-gradient-to-t {
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
 }
@@ -3088,6 +3104,9 @@ iframe {
 .pr-4 {
   padding-right: 1rem;
 }
+.pr-1 {
+  padding-right: 0.25rem;
+}
 .text-left {
   text-align: left;
 }
@@ -3196,6 +3215,10 @@ iframe {
 .text-yellow-700 {
   --tw-text-opacity: 1;
   color: rgb(161 98 7 / var(--tw-text-opacity));
+}
+.text-red-800 {
+  --tw-text-opacity: 1;
+  color: rgb(153 27 27 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;
@@ -3429,6 +3452,22 @@ iframe {
 
   .md\:rounded-md {
     border-radius: 0.375rem;
+  }
+
+  .md\:rounded-tl-xl {
+    border-top-left-radius: 0.75rem;
+  }
+
+  .md\:rounded-bl-xl {
+    border-bottom-left-radius: 0.75rem;
+  }
+
+  .md\:rounded-tr-xl {
+    border-top-right-radius: 0.75rem;
+  }
+
+  .md\:rounded-br-xl {
+    border-bottom-right-radius: 0.75rem;
   }
 
   .md\:border {
