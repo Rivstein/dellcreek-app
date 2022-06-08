@@ -1022,6 +1022,9 @@ textarea.form-control.is-invalid {
 .modal.modal-static .modal-dialog {
   transform: scale(1.02);
 }
+.modal-dialog-scrollable {
+  height: calc(100% - 1rem);
+}
 .modal-dialog-scrollable .modal-content {
   max-height: 100%;
   overflow: hidden;
@@ -2701,6 +2704,9 @@ iframe {
 .m-2 {
   margin: 0.5rem;
 }
+.m-4 {
+  margin: 1rem;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -2806,6 +2812,9 @@ iframe {
 .ml-1 {
   margin-left: 0.25rem;
 }
+.ml-2 {
+  margin-left: 0.5rem;
+}
 .box-content {
   box-sizing: content-box;
 }
@@ -2839,6 +2848,9 @@ iframe {
 .h-72 {
   height: 18rem;
 }
+.h-1\/2 {
+  height: 50%;
+}
 .min-h-full {
   min-height: 100%;
 }
@@ -2867,6 +2879,9 @@ iframe {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+}
+.w-3\/4 {
+  width: 75%;
 }
 .min-w-full {
   min-width: 100%;
@@ -2940,6 +2955,12 @@ iframe {
 .rounded-b-md {
   border-bottom-right-radius: 0.375rem;
   border-bottom-left-radius: 0.375rem;
+}
+.rounded-tr-none {
+  border-top-right-radius: 0px;
+}
+.rounded-br-none {
+  border-bottom-right-radius: 0px;
 }
 .border {
   border-width: 1px;
@@ -3044,6 +3065,10 @@ iframe {
 .bg-yellow-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(202 138 4 / var(--tw-bg-opacity));
+}
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 .bg-gradient-to-t {
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
@@ -3173,6 +3198,12 @@ iframe {
 .pl-2 {
   padding-left: 0.5rem;
 }
+.pr-1 {
+  padding-right: 0.25rem;
+}
+.pl-1 {
+  padding-left: 0.25rem;
+}
 .text-left {
   text-align: left;
 }
@@ -3288,6 +3319,10 @@ iframe {
 .text-blue-400 {
   --tw-text-opacity: 1;
   color: rgb(96 165 250 / var(--tw-text-opacity));
+}
+.text-red-800 {
+  --tw-text-opacity: 1;
+  color: rgb(153 27 27 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;
@@ -3579,6 +3614,30 @@ iframe {
     border-radius: 0.375rem;
   }
 
+  .md\:rounded-lg {
+    border-radius: 0.5rem;
+  }
+
+  .md\:rounded-tl-lg {
+    border-top-left-radius: 0.5rem;
+  }
+
+  .md\:rounded-tl-xl {
+    border-top-left-radius: 0.75rem;
+  }
+
+  .md\:rounded-bl-xl {
+    border-bottom-left-radius: 0.75rem;
+  }
+
+  .md\:rounded-tr-xl {
+    border-top-right-radius: 0.75rem;
+  }
+
+  .md\:rounded-br-xl {
+    border-bottom-right-radius: 0.75rem;
+  }
+
   .md\:border {
     border-width: 1px;
   }
@@ -3597,6 +3656,10 @@ iframe {
 
   .md\:p-4 {
     padding: 1rem;
+  }
+
+  .md\:p-1 {
+    padding: 0.25rem;
   }
 
   .md\:px-10 {

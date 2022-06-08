@@ -30,6 +30,7 @@ Route::controller(AdminPropertiesController::class)
     Route::get('edit/{id}','edit');
     Route::patch('update/{id}','update')->name('update');
     Route::get('delete/{id}','delete')->name('delete');
+    Route::delete('delete_image/{id}/{property_id}','deleteImage')->name('delete_image');
 });
 // highlighted propery routes
 Route::post('highlight_property','HighlightedPropertyController@store')->name('highlight_property');
