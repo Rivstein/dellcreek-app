@@ -107,10 +107,14 @@
 
             </div>
             <div class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
-                <a href="{{ url('properties/property/'.$highlighted->id) }}" class="btn-warning">
-                    View property
-                    <i class="pl-2 fa fa-arrow-right"></i>
-                </a>
+                
+                @isset($highlighted)
+                   <a href="{{ url('properties/property/'.$highlighted->id)}}" class="btn-warning">
+                        View property
+                        <i class="pl-2 fa fa-arrow-right"></i>
+                    </a> 
+                @endisset
+                
             </div>
         </div>
     </div>
