@@ -73,14 +73,17 @@ class AdminPropertiesController extends Controller
 
         $property = Property::create($data);
 
-        foreach ($request->file('images') as $image) {
-            $path = $image->store('public/properties/images');
-            $storage_path = explode('public/', $path)[1];
-            PropertyImage::create([
-                'property_id' => $property->id,
-                'path' => $storage_path
-            ]);
+        if ($request->file('images') != null) {
+            foreach ($request->file('images') as $image) {
+                $path = $image->store('public/properties/images');
+                $storage_path = explode('public/', $path)[1];
+                PropertyImage::create([
+                    'property_id' => $property->id,
+                    'path' => $storage_path
+                ]);
+            }
         }
+        
 
         return redirect('admin/properties/property/'.$property->id);
     }
