@@ -48,13 +48,9 @@ Route::controller(WebPropertiesController::class)->
 ->group(function () {
     Route::get('property/{id}','property');
 });
-<<<<<<< HEAD
-// contact 
-Route::post('contact/{type}/{origin}/{property_id?}','ContactController@store');
-=======
+
 // contact route 
 Route::post('contact/{type}/{origin}/{property_id?}','ContactController@store')->name('contact');
->>>>>>> 62b88009a0725df9d4e7418e87e5591b19641ff7
 
 Auth::routes();
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
