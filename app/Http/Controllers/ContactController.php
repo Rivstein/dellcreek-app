@@ -8,13 +8,18 @@ use App\Models\Contact;
 class ContactController extends Controller
 {
     // store newsletter data
-    public function store(Request $request)
+    public function store(Request $request, $type, $origin, $property_id = null)
     {
         $request->validate([
             'email' => 'required',
             'phone_number' => 'required'
         ]);
-        Contact::create($request->all());
+        
+        $contact = Contact::create($request->all());
+        $contact->type = $type;
+        $contact->origin = $origin;
+        $contact->property_id = $property_id;
+        $contact->save();
 
         return back();
     }

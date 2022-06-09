@@ -13,7 +13,7 @@
                 Subscribe to get updates on listed properties, news and all things
                 property.
             </div>
-            <form action="{{ url('newsletter') }}" method="POST">
+            <form action="{{ route('contact',['type'=>'newsletter','origin'=>$origin]) }}" method="POST">
                 @csrf
                 <div class="my-5 bg-white md:w-2/3 py-2 px-4 border border-gray-400 rounded-md shadow-md hover:shadow-lg">
                     <input type="email" class="w-full" name="email" placeholder="Enter email">
@@ -21,13 +21,11 @@
                 <div class="mb-3 bg-white md:w-2/3 py-2 px-4 border border-gray-400 rounded-md shadow-md hover:shadow-lg">
                     <input type="text" placeholder="Phone number" name="phone_number">
                 </div>
-                <input type="hidden" value="newsletter" name="type">
                 <div class="md:text-left text-center">
-                    <button class="bg-gray-700 text-white py-2 px-4 rounded shadow">
+                    <button type="submit" class="bg-gray-700 text-white py-2 px-4 rounded shadow">
                         Subscribe
                     </button>    
                 </div>
-                
             </form>
         </div>   
     </div>
