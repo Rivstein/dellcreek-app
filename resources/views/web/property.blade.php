@@ -72,7 +72,7 @@
                     </h2>
                     {{-- deposite --}}
                     <div class="text-sm">
-                        Min. Deposite
+                        Min. Deposit
                         <span class="font-semibold">
                             Ksh {{ number_format($property->price*0.1) }}
                         </span>
@@ -115,8 +115,66 @@
         </div>
 
         {{-- client actions --}}
-        <div class="md:w-1/3 w-full bg-gray-300 p-2">
+        <div class="md:w-1/3 w-full md:pl-8  p-2">
+         {{-- request actions --}}
+            {{-- request btn --}}
+            <div class="flex">
+                <button class="w-1/2 font-Inter text-md request-btn p-2 border-t border-l border-r font-bold" data-id="tour-form" >Shedule visit</button>
+                <button class="w-1/2 font-sans text-md request-btn p-2 border-b" data-id="info-form" >Request Info</button>
+            </div>
+            {{-- tour form --}}
+            <div class="shadow-lg pt-4 border-b border-l border-r p-4 request-form" id="tour-form">
+                <form action="{{ route('contact',['type' => 'site_visit', 'origin' => 'property page', 'product_id' => $product->id]) }}" method="POST">
+                    {{-- date  --}}
+                    <label for="" class="font-mono">Date</label>
+                    <input type="date" class="form-input w-full mt-2 mb-3" name="date" required>
 
+                    {{-- phone number --}}
+                    <label for="" class="font-mono">Phone number</label>
+                    <input type="text" class="form-input w-full mt-2 mb-3" name="phone_number" placeholder="Enter your phone number" required>
+
+                    {{-- email --}}
+                    <label for="" class="font-mono">Email</label>
+                    <input type="email" class="form-input w-full mt-2 mb-3" name="email" placeholder="Enter your email address" required>
+
+                    {{-- message --}}
+                    <label for="" class="font-mono">Message</label>
+                    <textarea name="" id=""  rows="3" class="form-input w-full mt-2 mb-3" required>I would like to shedule a site visit for {{$property->name}}</textarea>
+
+                    {{-- submit btn --}}
+                    <div class=" flex justify-center">
+                        <button class="btn-warning  mt-6 my-2">
+                            Send Request
+                            <i class="pl-4 fa-solid fa-arrow-up-right-from-square"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            {{-- info form --}}
+            <div class="shadow-lg border-b border-l border-r pt-4 p-2 hidden request-form" id="info-form">
+                <form action="{{ route('contact',['type' => 'request_info', 'origin' => 'property page', 'product_id' => $product->id]) }}" method="POST">
+                    {{-- phone number --}}
+                    <label for="" class="font-mono">Phone number</label>
+                    <input type="text" class="form-input w-full mt-2 mb-3" name="phone_number" placeholder="Enter your phone number" required>
+
+                    {{-- email --}}
+                    <label for="" class="font-mono">Email</label>
+                    <input type="email" class="form-input w-full mt-2 mb-3" name="phone_number" placeholder="Enter your email address" required>
+
+                    {{-- message --}}
+                    <label for="" class="font-mono">Message</label>
+                    <textarea name="message" id="" rows="3" class="form-input w-full mt-2 mb-3" required>I am interested in {{$property->name}}</textarea>
+
+                    {{-- submit btn --}}
+                    <div class=" flex justify-center">
+                        <button class="btn-warning  mt-6 my-2" type="submit">
+                            Send Request
+                            <i class="pl-4 fa-solid fa-arrow-up-right-from-square"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
 
     </div>
@@ -173,8 +231,10 @@
 @endsection
 
 @section('webjs')
+
 <script>
     let principle = "{{ $property->price }}"
 </script>
 <script src="{{ asset('js/modules/instalmentsCalculator.js') }}"></script>
+<script src="{{ asset('js/modules/contactForm.js') }}"></script>
 @endsection
