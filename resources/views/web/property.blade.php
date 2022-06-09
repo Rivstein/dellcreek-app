@@ -131,7 +131,7 @@
          {{-- request actions --}}
             {{-- request btn --}}
             <div class="flex">
-                <button class="w-1/2 font-Inter text-md request-btn p-2 border-t border-l border-r font-bold" data-id="tour-form" >Shedule visit</button>
+                <button class="w-1/2 font-Inter text-md request-btn p-2 border-t border-l border-r font-bold" data-id="tour-form" >Schedule visit</button>
                 <button class="w-1/2 font-sans text-md request-btn p-2 border-b" data-id="info-form" >Request Info</button>
             </div>
             {{-- tour form --}}
@@ -151,7 +151,7 @@
 
                     {{-- message --}}
                     <label for="" class="font-mono">Message</label>
-                    <textarea name="" id=""  rows="3" class="form-input w-full mt-2 mb-3" required>I would like to shedule a site visit for {{$property->name}}</textarea>
+                    <textarea name="" id=""  rows="3" class="form-input w-full mt-2 mb-3" required>I would like to schedule a site visit for {{$property->name}}</textarea>
 
                     {{-- submit btn --}}
                     <div class=" flex justify-center">
