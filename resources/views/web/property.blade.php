@@ -152,7 +152,7 @@
 
                     {{-- message --}}
                     <label for="" class="font-mono">Message</label>
-                    <textarea name="" id=""  rows="3" class="form-input w-full mt-2 mb-3" required>I would like to schedule a site visit for {{$property->name}}</textarea>
+                    <textarea name="message" id=""  rows="3" class="form-input w-full mt-2 mb-3" required>I would like to schedule a site visit for {{$property->name}}</textarea>
 
                     {{-- submit btn --}}
                     <div class=" flex justify-center">
@@ -174,7 +174,7 @@
 
                     {{-- email --}}
                     <label for="" class="font-mono">Email</label>
-                    <input type="email" class="form-input w-full mt-2 mb-3" name="phone_number" placeholder="Enter your email address" required>
+                    <input type="email" class="form-input w-full mt-2 mb-3" name="email" placeholder="Enter your email address" required>
 
                     {{-- message --}}
                     <label for="" class="font-mono">Message</label>
