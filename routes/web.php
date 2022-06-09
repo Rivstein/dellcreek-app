@@ -49,6 +49,12 @@ Route::controller(WebPropertiesController::class)->
     Route::get('property/{id}','property');
 });
 
+<<<<<<< HEAD
+=======
+// contact forms route 
+Route::post('contact/{type}/{origin}/{property_id?}','ContactController@store')->name('contact');
+
+>>>>>>> 0fc8286008feda5618647de2af5f24721af119fd
 
 Auth::routes();
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
