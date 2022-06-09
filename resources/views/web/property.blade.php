@@ -136,7 +136,7 @@
             </div>
             {{-- tour form --}}
             <div class="shadow-lg pt-4 border-b border-l border-r p-4 request-form" id="tour-form">
-                <form action="{{ route('contact',['type' => 'site_visit', 'origin' => 'property page', 'product_id' => $product->id]) }}" method="POST">
+                <form action="{{ route('contact',['type' => 'site_visit', 'origin' => 'property page', 'property_id' => $property->id]) }}" method="POST">
                     {{-- date  --}}
                     <label for="" class="font-mono">Date</label>
                     <input type="date" class="form-input w-full mt-2 mb-3" name="date" required>
@@ -165,7 +165,7 @@
 
             {{-- info form --}}
             <div class="shadow-lg border-b border-l border-r pt-4 p-2 hidden request-form" id="info-form">
-                <form action="{{ route('contact',['type' => 'request_info', 'origin' => 'property page', 'product_id' => $product->id]) }}" method="POST">
+                <form action="{{ route('contact',['type' => 'request_info', 'origin' => 'property page', 'property_id' => $property->id]) }}" method="POST">
                     {{-- phone number --}}
                     <label for="" class="font-mono">Phone number</label>
                     <input type="text" class="form-input w-full mt-2 mb-3" name="phone_number" placeholder="Enter your phone number" required>
