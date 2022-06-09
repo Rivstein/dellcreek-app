@@ -14,33 +14,97 @@
     <div class="p-4 flex justify-between border-b border-b-gray-500">
         {{-- left --}}
         <div class="flex items-center">
-            {{-- edit --}}
-            <a href="{{ url('admin/properties/edit/'.$property->id) }}" class="btn-primary py-1 mx-2">
-                <i class="fa fa-edit pr-2"></i>
-                Edit
-            </a>
+            {{-- images --}}
+            <div class="dropdown relative mr-2">
+                <button class="
+                        dropdown-toggle
+                        btn-secondary py-1
+                        transition
+                        duration-150
+                        ease-in-out
+                        flex
+                        items-center
+                        whitespace-nowrap
+                    " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    
+                    <i class="fa fa-images pr-2"></i>
+                    Images
+
+                    
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down" class="w-2 ml-2"
+                        role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                        <path fill="currentColor"
+                            d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+                        </path>
+                    </svg>
+                </button>
+                <ul class="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding border-none" aria-labelledby="dropdownMenuButton1">
+                    <li>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#uploadImage" class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100">
+                            <i class="fa fa-upload pr-2 text-blue-800"></i>
+                            Upload image 
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#replaceMainImage" class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100">
+                            <i class="fa fa-arrows-rotate pr-2 text-blue-800"></i>
+                            Replace main image 
+                        </a>
+                    </li>
+                </ul>
+            </div>
             {{-- highlight --}}
             @if ($highlighted)
-                <button class="mx-2 btn-warning shadow-lg py-1" title="Property highlighted" data-bs-toggle="modal" data-bs-target="#highlightProperty">
-                    <i class="fa fa-star text-green-600 pr-2"></i>
-                    Highlighted
-                </button>
+            <button class="mx-2 btn-warning shadow-lg py-1" title="Property highlighted" data-bs-toggle="modal"
+                data-bs-target="#highlightProperty">
+                <i class="fa fa-star text-green-600 pr-2"></i>
+                Highlighted
+            </button>
             @else
-                <button class="mx-2 btn-secondary py-1" data-bs-toggle="modal" data-bs-target="#highlightProperty">
-                    <i class="fa fa-rocket text-yellow-400 pr-2"></i>
-                    Highlight
-                </button>    
+            <button class="mx-2 btn-secondary py-1" data-bs-toggle="modal" data-bs-target="#highlightProperty">
+                <i class="fa fa-rocket text-yellow-400 pr-2"></i>
+                Highlight
+            </button>
             @endif
-            
+
         </div>
         {{-- right --}}
         <div class="flex items-center">
-            <button type="button" class="btn-danger py-1 mx-2"
-            data-bs-toggle="modal" data-bs-target="#deletePropertyModal"
-            >
-                <i class="fa fa-trash pr-2"></i>
-               Delete
-            </button>
+            {{-- actions --}}
+            <div class="dropdown relative">
+                <button class="
+                        dropdown-toggle
+                        btn-secondary py-1
+                        transition
+                        duration-150
+                        ease-in-out
+                        flex
+                        items-center
+                        whitespace-nowrap
+                    " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Actions
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down" class="w-2 ml-2"
+                        role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                        <path fill="currentColor"
+                            d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+                        </path>
+                    </svg>
+                </button>
+                <ul class="dropdown-menu min-w-max absolute hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding border-none" aria-labelledby="dropdownMenuButton1">
+                    <li>
+                        <a href="{{ url('admin/properties/edit/'.$property->id) }}" class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100">
+                            <i class="fa fa-edit pr-2 text-blue-800"></i>
+                            Edit property details
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#deletePropertyModal" class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100">
+                            <i class="fa fa-trash pr-2 text-red-800"></i>
+                            Delete property
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -69,7 +133,7 @@
                 <h1 class="text-lg mt-2 underline">Local information</h1>
                 <div>
                     {{ $property->county }},
-                    {{ $property->sub_county }}    
+                    {{ $property->sub_county }}
                 </div>
                 <div class="mt-2">
                     {{ $property->location }}
@@ -133,71 +197,75 @@
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                         data-bs-parent="#accordionExample">
                         <div class="accordion-body py-4 px-5">
-                            
+
                             @if (count($property->images))
 
-                                <div class="flex w-full flex-wrap">
-                                    @foreach ($property->images as $image)
-                                        <div class="md:w-1/4 w-full p-2 mb-3">
-                                            <img class="block" src="{{ asset('storage/'.$image->path) }}" alt="">
-                                            <div class="flex">
-                                                {{-- delete--}}
-                                                <button class="delete-img-btn">
-                                                    <i class="fa fa-trash text-red-500"></i>
-                                                </button>
-                                                {{-- confirm delete --}}
-                                                <form action="{{ route('admin.propery.delete_image',['id'=>$image->id, 'property_id'=>$property->id]) }}" method="POST">
-                                                    @csrf 
-                                                    @method('DELETE')
-                                                    <button class="text-xs delete-img-actions ml-2 hidden hover:underline text-red-800">
-                                                        Delete image
-                                                    </button>
-                                                </form>
-                                                {{-- cancel delete --}}
-                                                <button class="text-xs delete-img-actions hidden cancel-img-delete ml-2 hover:underline text-blue-800">
-                                                    Cancel
-                                                </button>    
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div>  
-
-                            @else
-                                
-                                <div class="text-center">
-                                    <i class="fa fa-images text-3xl"></i>
-                                    <div>
-                                        No images
+                            <div class="flex w-full flex-wrap">
+                                @foreach ($property->images as $image)
+                                <div class="md:w-1/4 w-full p-2 mb-3">
+                                    <img class="block" src="{{ asset('storage/'.$image->path) }}" alt="">
+                                    <div class="flex">
+                                        {{-- delete--}}
+                                        <button class="delete-img-btn">
+                                            <i class="fa fa-trash text-red-500"></i>
+                                        </button>
+                                        {{-- confirm delete --}}
+                                        <form
+                                            action="{{ route('admin.propery.delete_image',['id'=>$image->id, 'property_id'=>$property->id]) }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button
+                                                class="text-xs delete-img-actions ml-2 hidden hover:underline text-red-800">
+                                                Delete image
+                                            </button>
+                                        </form>
+                                        {{-- cancel delete --}}
+                                        <button
+                                            class="text-xs delete-img-actions hidden cancel-img-delete ml-2 hover:underline text-blue-800">
+                                            Cancel
+                                        </button>
                                     </div>
                                 </div>
+                                @endforeach
+                            </div>
+
+                            @else
+
+                            <div class="text-center">
+                                <i class="fa fa-images text-3xl"></i>
+                                <div>
+                                    No images
+                                </div>
+                            </div>
 
                             @endif
 
                         </div>
                     </div>
                 </div>
-            </div>    
+            </div>
         </div>
-        
+
     </div>
 </div>
 
 {{-- delete modal --}}
 @include('admin.inc.deletemodal',[
-    'id' => 'deletePropertyModal',
-    'item' => 'property',
-    'url' => url('admin/properties/delete/'.$property->id)
+'id' => 'deletePropertyModal',
+'item' => 'property',
+'url' => url('admin/properties/delete/'.$property->id)
 ])
 
 {{-- highlight modal --}}
-@include('admin.properties.inc.highlight_modal')
+@include('admin.properties.inc.property_modals')
 
 @endsection
 
 {{-- js --}}
 @section('adminjs')
-    <script>
-        let $delete_img_btn = $('.delete-img-btn')
+<script>
+    let $delete_img_btn = $('.delete-img-btn')
         let $cancel_img_delete = $('.cancel-img-delete')
 
         $delete_img_btn.click(function(){
@@ -208,5 +276,5 @@
         $cancel_img_delete.click(function(){
             $('.delete-img-actions').hide()
         })
-    </script>
+</script>
 @endsection

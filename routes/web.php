@@ -31,6 +31,8 @@ Route::controller(AdminPropertiesController::class)
     Route::patch('update/{id}','update')->name('update');
     Route::get('delete/{id}','delete')->name('delete');
     Route::delete('delete_image/{id}/{property_id}','deleteImage')->name('delete_image');
+    Route::patch('update_main_image/{property_id}','updateMainImage')->name('update_main_image');
+    Route::post('upload_image/{property_id}','uploadImage')->name('upload_image');
 });
 // highlighted propery routes
 Route::post('highlight_property','HighlightedPropertyController@store')->name('highlight_property');
@@ -46,8 +48,8 @@ Route::controller(WebPropertiesController::class)->
 ->group(function () {
     Route::get('property/{id}','property');
 });
-// newsletter 
-Route::post('newsletter','ContactController@store');
+// contact route 
+Route::post('contact/{type}/{origin}/{property_id?}','ContactController@store')->name('contact');
 
 Auth::routes();
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');

@@ -83,8 +83,7 @@ class AdminPropertiesController extends Controller
                 ]);
             }
         }
-        
-
+   
         return redirect('admin/properties/property/'.$property->id);
     }
 
@@ -106,6 +105,28 @@ class AdminPropertiesController extends Controller
         return redirect('admin/properties/property/'.$property->id);
     }
 
+    // update property main image
+    public function updateMainImage(Request $request, $property_id)
+    {
+        $property = Property::find($property_id);
+        $path = $request->file('image')->store('public/properties');
+        $property->image = explode('public/', $path)[1];
+        $property->save();
+        return back();
+    }
+
+    // upload property image
+    public function uploadImage(Request $request, $property_id)
+    {
+        $path = $request->file('image')->store('public/properties/images');
+        $storage_path = explode('public/', $path)[1];
+        PropertyImage::create([
+            'property_id' => $property_id,
+            'path' => $storage_path
+        ]);
+        return back();
+    }
+
     // delete property
     public function delete($id)
     {
@@ -119,6 +140,6 @@ class AdminPropertiesController extends Controller
     {
         $image = PropertyImage::find($id);
         $image->delete();
-        return redirect('admin/properties/property/'.$property_id);
+        return back();
     }
 }

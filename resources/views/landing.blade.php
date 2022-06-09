@@ -76,7 +76,7 @@
     </div>
 
     {{-- subscribe --}}
-    @include('web.inc.subscribe')
+    @include('web.inc.subscribe', ['origin' => 'landing page'])
 </div>
 
 

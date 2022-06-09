@@ -16,11 +16,23 @@
             <div class="md:w-1/4 w-full">
                 <div class="p-1 h-1/2">
                     <img class="block md:rounded-tr-xl w-full h-full object-cover shadow-md"
-                        src="{{ asset('storage/'.$property->image) }}" alt="{{ $property->name.$property->image }}">
+                        src="
+                        @isset($property->images[0])
+                            {{ asset('storage/'.$property->images[0]['path']) }}
+                        @else 
+                            {{ asset('img/no-img.png') }}
+                        @endisset
+                        " alt="{{ $property->name.$property->image }}">
                 </div>
                 <div class="p-1 h-1/2">
                     <img class="block md:rounded-br-xl w-full h-full object-cover shadow-md"
-                        src="{{ asset('storage/'.$property->image) }}" alt="{{ $property->name.$property->image }}">
+                        src="
+                        @isset($property->images[1])
+                            {{ asset('storage/'.$property->images[1]['path']) }}
+                        @else 
+                            {{ asset('img/no-img.png') }}
+                        @endisset
+                        " alt="{{ $property->name.$property->image }}">
                 </div>
             </div>
         </a>
@@ -34,7 +46,7 @@
         <div class="absolute bottom-0 right-0 m-4">
             <span class="bg-black text-white shadow-lg rounded px-2 py-1 font-semibold text-sm">
                 <i class="fa fa-images pr-1"></i>
-                <span>3</span>
+                <span>{{ count($property->images)+1 }}</span>
             </span>
         </div>
     </div>
@@ -150,11 +162,15 @@
                 </div>
 
                 {{-- other images --}}
-                <div class="p-2">
-                    <img class="w-full shadow-md"
-                        src="{{ asset('storage/'.$property->image) }}" alt="{{ $property->name.$property->image }}">
-                </div>
-
+                @if (count($property->images) > 0)
+                    @foreach ($property->images as $image)
+                        <div class="p-2">
+                            <img class="w-full shadow-md"
+                                src="{{ asset('storage/'.$image->path) }}" alt="{{ $property->name.$image->path }}">
+                        </div>     
+                    @endforeach  
+                @endif
+                
                 {{-- msg --}}
                 <div class="text-center my-4">
                     No more images
