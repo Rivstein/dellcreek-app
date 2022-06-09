@@ -131,12 +131,12 @@
          {{-- request actions --}}
             {{-- request btn --}}
             <div class="flex">
-                <button class="w-1/2 font-Inter text-md request-btn p-2 border-t border-l border-r font-bold" data-id="tour-form" >Shedule visit</button>
+                <button class="w-1/2 font-Inter text-md request-btn p-2 border-t border-l border-r font-bold" data-id="tour-form" >Schedule visit</button>
                 <button class="w-1/2 font-sans text-md request-btn p-2 border-b" data-id="info-form" >Request Info</button>
             </div>
             {{-- tour form --}}
             <div class="shadow-lg pt-4 border-b border-l border-r p-4 request-form" id="tour-form">
-                <form action="{{ route('contact',['type' => 'site_visit', 'origin' => 'property page', 'product_id' => $product->id]) }}" method="POST">
+                <form action="{{ route('contact',['type' => 'site_visit', 'origin' => 'property page', 'property_id' => $property->id]) }}" method="POST">
                     {{-- date  --}}
                     <label for="" class="font-mono">Date</label>
                     <input type="date" class="form-input w-full mt-2 mb-3" name="date" required>
@@ -151,7 +151,7 @@
 
                     {{-- message --}}
                     <label for="" class="font-mono">Message</label>
-                    <textarea name="" id=""  rows="3" class="form-input w-full mt-2 mb-3" required>I would like to shedule a site visit for {{$property->name}}</textarea>
+                    <textarea name="" id=""  rows="3" class="form-input w-full mt-2 mb-3" required>I would like to schedule a site visit for {{$property->name}}</textarea>
 
                     {{-- submit btn --}}
                     <div class=" flex justify-center">
@@ -165,7 +165,7 @@
 
             {{-- info form --}}
             <div class="shadow-lg border-b border-l border-r pt-4 p-2 hidden request-form" id="info-form">
-                <form action="{{ route('contact',['type' => 'request_info', 'origin' => 'property page', 'product_id' => $product->id]) }}" method="POST">
+                <form action="{{ route('contact',['type' => 'request_info', 'origin' => 'property page', 'property_id' => $property->id]) }}" method="POST">
                     {{-- phone number --}}
                     <label for="" class="font-mono">Phone number</label>
                     <input type="text" class="form-input w-full mt-2 mb-3" name="phone_number" placeholder="Enter your phone number" required>
