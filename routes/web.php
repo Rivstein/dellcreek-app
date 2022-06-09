@@ -49,7 +49,7 @@ Route::controller(WebPropertiesController::class)->
     Route::get('property/{id}','property');
 });
 
-// contact route 
+// contact forms route 
 Route::post('contact/{type}/{origin}/{property_id?}','ContactController@store')->name('contact');
 
 
