@@ -87,7 +87,7 @@ $menu_items = [
             </ul>
         </div>
         {{-- mobile nav icon --}}
-        <button class="md:hidden">
+        <button class="md:hidden" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMobileNav" aria-controls="offcanvasMobileNav">
             <i class="fa fa-bars text-2xl"></i>
         </button>
     </div>
@@ -95,3 +95,4 @@ $menu_items = [
 
 {{-- clear fix --}}
 <div class="mt-16"></div>
+
