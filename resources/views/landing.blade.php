@@ -1,5 +1,9 @@
 @extends('layouts.web')
 
+@section('webcss')
+    <link rel="stylesheet" href="{{ asset('owlcarousel/owl.carousel.min.css') }}">
+@endsection
+
 
 @section('page')
 
@@ -75,13 +79,15 @@
         </div>
     </div>
 
+    {{-- browse by county --}}
+    @include('web.inc.browse_by_county')
+
     {{-- subscribe --}}
     @include('web.inc.subscribe', ['origin' => 'landing page'])
 </div>
 
 
-
-<!-- Modal -->
+<!-- highlighted Modal -->
 <div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
     id="highlightedProperty" tabindex="-1" aria-labelledby="highlightedPropertyLabel" aria-hidden="true">
     <div class="modal-dialog relative w-auto pointer-events-none">
@@ -120,4 +126,9 @@
     </div>
 </div>
 
+@endsection
+
+@section('webjs')
+    <script src="{{ asset('owlcarousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('js/modules/countyCarousel.js') }}"></script>
 @endsection

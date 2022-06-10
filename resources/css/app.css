@@ -22,7 +22,8 @@
     .btn-secondary,
     .btn-success,
     .btn-danger,
-    .btn-warning{
+    .btn-warning,
+    .btn-light{
       @apply flex items-center w-fit bg-gray-600 hover:bg-gray-700 shadow hover:shadow-lg text-sm text-white font-bold px-4 py-2 rounded-md
     }
     .btn-primary{
@@ -36,6 +37,9 @@
     }
     .btn-danger{
       @apply bg-red-600 hover:bg-red-700
+    }
+    .btn-light{
+      @apply bg-gray-200 hover:bg-red-300 text-black
     }
     .admin-card{
       @apply bg-white border border-gray-500 shadow-lg

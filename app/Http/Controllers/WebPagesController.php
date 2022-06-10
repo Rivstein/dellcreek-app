@@ -11,7 +11,41 @@ class WebPagesController extends Controller
     //index
     public function index()
     {
-        $properties = Property::latest()->paginate(9);
+        $data = array_merge([
+            'properties' => Property::latest()->paginate(9),
+            'counties' => $this->getCounties(),
+        ], $this->getHighlighted());
+
+        // dd($data);
+
+        return view('landing')->with($data);
+    }
+
+    /**
+     * Get property counties and order them from the one
+     * with the most properties to the one with the least
+     * properties and return an array of the counties names.
+     */
+    private function getCounties()
+    {
+        $counties_list = Property::select('county')->groupBy('county')
+                        ->orderByRaw('COUNT(*) DESC')
+                        ->limit(47)
+                        ->get();
+        $counties = [];
+
+        foreach ($counties_list as $county_name) {
+            array_push($counties, $county_name->county);
+        }
+
+        return $counties;
+    }
+
+    /**
+     * Get highlighted property or display latest property
+     */
+    private function getHighlighted()
+    {
         $highlighted = HighlightedProperty::latest()->first();
         $description = null;
         
@@ -23,10 +57,9 @@ class WebPagesController extends Controller
             $highlighted = $highlighted->property;
         }
 
-        return view('landing',compact(
-            'properties',
-            'highlighted',
-            'description'
-        ));
+        return [
+            'highlighted' => $highlighted,
+            'description' => $description
+        ];
     }
 }
