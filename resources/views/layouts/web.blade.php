@@ -11,7 +11,12 @@
     {{-- topnav --}}
     @include('web.inc.topnav')
 
+    {{-- offcanvas mobile nav --}}
+    @include('web.inc.mobilenav')
+
     @yield('page')
+
+
 
     {{-- footer --}}
     @include('web.inc.footer')
