@@ -2705,25 +2705,17 @@ iframe {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
 }
-.mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-.my-8 {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
 .my-14 {
   margin-top: 3.5rem;
   margin-bottom: 3.5rem;
 }
-.my-20 {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-}
 .-my-5 {
   margin-top: -1.25rem;
   margin-bottom: -1.25rem;
+}
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 .mb-14 {
   margin-bottom: 3.5rem;
@@ -2767,14 +2759,14 @@ iframe {
 .mr-4 {
   margin-right: 1rem;
 }
+.mt-1 {
+  margin-top: 0.25rem;
+}
 .mr-2 {
   margin-right: 0.5rem;
 }
 .ml-2 {
   margin-left: 0.5rem;
-}
-.mt-1 {
-  margin-top: 0.25rem;
 }
 .mt-3 {
   margin-top: 0.75rem;
@@ -2784,6 +2776,9 @@ iframe {
 }
 .mr-1 {
   margin-right: 0.25rem;
+}
+.-mr-2 {
+  margin-right: -0.5rem;
 }
 .-mt-1 {
   margin-top: -0.25rem;
@@ -2799,9 +2794,6 @@ iframe {
 }
 .mt-16 {
   margin-top: 4rem;
-}
-.-mr-2 {
-  margin-right: -0.5rem;
 }
 .box-content {
   box-sizing: content-box;
@@ -2863,6 +2855,9 @@ iframe {
 .w-14 {
   width: 3.5rem;
 }
+.w-96 {
+  width: 24rem;
+}
 .w-64 {
   width: 16rem;
 }
@@ -2870,9 +2865,6 @@ iframe {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-}
-.w-96 {
-  width: 24rem;
 }
 .min-w-full {
   min-width: 100%;
@@ -3055,14 +3047,6 @@ iframe {
   --tw-bg-opacity: 1;
   background-color: rgb(191 219 254 / var(--tw-bg-opacity));
 }
-.bg-gray-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-}
-.bg-green-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(187 247 208 / var(--tw-bg-opacity));
-}
 .bg-slate-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(51 65 85 / var(--tw-bg-opacity));
@@ -3070,6 +3054,14 @@ iframe {
 .bg-slate-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(241 245 249 / var(--tw-bg-opacity));
+}
+.bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+.bg-green-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(187 247 208 / var(--tw-bg-opacity));
 }
 .bg-gradient-to-t {
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
@@ -3164,14 +3156,6 @@ iframe {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
-.py-8 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-.py-5 {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-}
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -3179,6 +3163,14 @@ iframe {
 .py-2\.5 {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
+}
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 }
 .pb-10 {
   padding-bottom: 2.5rem;
@@ -3210,14 +3202,14 @@ iframe {
 .pl-4 {
   padding-left: 1rem;
 }
+.pt-3 {
+  padding-top: 0.75rem;
+}
 .pb-4 {
   padding-bottom: 1rem;
 }
 .pl-1 {
   padding-left: 0.25rem;
-}
-.pt-3 {
-  padding-top: 0.75rem;
 }
 .pr-4 {
   padding-right: 1rem;
