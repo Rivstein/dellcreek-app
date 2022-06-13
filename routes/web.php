@@ -39,7 +39,15 @@ Route::post('highlight_property','HighlightedPropertyController@store')->name('h
 Route::patch('highlight_property','HighlightedPropertyController@update')->name('highlight_property');
 Route::post('remove_highlighted/{id}', 'HighlightedPropertyController@remove')->name('remove_highlighted');
 
+// crm routes
 Route::get('index', 'CRMController@index');
+
+// users and security routes
+Route::controller(UserSecurityController::class)
+->prefix('user_security')->as('user_security.')
+->group(function () {
+    Route::get('manager','index');
+});
 
 
 // Web Routes
