@@ -7,7 +7,7 @@
                 <img src="{{ asset('img/logo.png') }}" alt="" class="w-14">
                 <h3 class="text-2xl pl-2 pt-3 font-ui-monospace font-bold">
                     <span class="text-yellow-500">Dellcreek</span>
-                    <span>Properties</span>
+                    <span>Developers</span>
                 </h3>
             </div>
             <div class="my-4 tracking-wider">
