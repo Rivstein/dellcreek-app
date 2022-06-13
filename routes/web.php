@@ -52,6 +52,8 @@ Route::controller(WebPropertiesController::class)->
 // contact forms route 
 Route::post('contact/{type}/{origin}/{property_id?}','ContactController@store')->name('contact');
 
+// user account routes
+Route::get('profile','UserAccountController@profile');
 
 Auth::routes();
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
