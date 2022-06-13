@@ -7,7 +7,7 @@ use App\Models\Contact;
 
 class ContactController extends Controller
 {
-    // store newsletter data
+    // store contact data
     public function store(Request $request, $type, $origin, $property_id = null)
     {
         $request->validate([
@@ -21,7 +21,7 @@ class ContactController extends Controller
         $contact->property_id = $property_id;
         $contact->save();
 
-        return back();
+        return back()->with('success-message','Success! Thank you for using dellcreek services');
     }
 
 

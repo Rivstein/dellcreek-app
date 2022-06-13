@@ -6,10 +6,10 @@
 
     {{-- images --}}
     <div class="relative">
-        <a href="#" class="flex md:h-80 h-64" data-bs-toggle="modal" data-bs-target="#propertyImages">
+        <a href="#" class="flex md:h-80 h-64 group" data-bs-toggle="modal" data-bs-target="#propertyImages">
             {{-- main --}}
             <div class="p-1 md:w-3/4 w-full">
-                <img class="md:rounded-tl-xl md:rounded-bl-xl w-full h-full object-cover shadow-md"
+                <img class="md:rounded-tl-xl group-hover:scale-105 transition ease-in-out md:rounded-bl-xl w-full h-full object-cover shadow-md"
                     src="{{ asset('storage/'.$property->image) }}" alt="{{ $property->name.$property->image }}">
             </div>
             {{-- other images --}}

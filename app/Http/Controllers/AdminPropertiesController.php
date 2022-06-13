@@ -84,7 +84,7 @@ class AdminPropertiesController extends Controller
             }
         }
    
-        return redirect('admin/properties/property/'.$property->id);
+        return redirect('admin/properties/property/'.$property->id)->with('success-message','Property created successfully, manage property below');
     }
 
     // edit property
@@ -102,7 +102,7 @@ class AdminPropertiesController extends Controller
         $this->validator($request);
         $property = Property::find($id);
         $property->update($request->all());
-        return redirect('admin/properties/property/'.$property->id);
+        return redirect('admin/properties/property/'.$property->id)->with('info-message','Property details updated successfully, manage property below');
     }
 
     // update property main image
@@ -112,7 +112,7 @@ class AdminPropertiesController extends Controller
         $path = $request->file('image')->store('public/properties');
         $property->image = explode('public/', $path)[1];
         $property->save();
-        return back();
+        return back()->with('success-message','Property main image replaced');
     }
 
     // upload property image
@@ -124,7 +124,7 @@ class AdminPropertiesController extends Controller
             'property_id' => $property_id,
             'path' => $storage_path
         ]);
-        return back();
+        return back()->with('success-message','New property image uploaded successfully');
     }
 
     // delete property
@@ -132,7 +132,7 @@ class AdminPropertiesController extends Controller
     {
         $property = Property::find($id);
         $property->delete();
-        return redirect('admin/properties/manager');
+        return redirect('admin/properties/manager')->with('warning-message','Property deleted');
     }
 
     // delete property image
@@ -140,6 +140,6 @@ class AdminPropertiesController extends Controller
     {
         $image = PropertyImage::find($id);
         $image->delete();
-        return back();
+        return back()->with('warning-message','Property image deleted');
     }
 }

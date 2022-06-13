@@ -15,7 +15,7 @@ $menu_items = [
         <img src="{{ asset('img/logo.png') }}" class="w-14" alt="dellcreek logo">
         <div class="text-xl ml-3 font-bold">
             <div>Dellcreek</div>
-            <div class="-mt-1 font-mono text-sm">Properties Ltd</div>
+            <div class="-mt-1 font-mono text-sm">Developers Ltd</div>
         </div>
     </a>
     {{-- main menu --}}

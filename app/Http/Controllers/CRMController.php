@@ -10,7 +10,6 @@ class CRMController extends Controller
     public function index()
     {
         $contacts = Contact::all();
-        // dd($contacts);
         return view ('admin.crm.index', compact('contacts'));
     }
 }

@@ -36,6 +36,9 @@
                     </div>
                 </div>
 
+                {{-- alert messages --}}
+                @include('alerts.messages')
+
                 {{-- yeild page --}}
                 @yield('page')    
             </div>
