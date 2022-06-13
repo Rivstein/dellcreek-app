@@ -11,7 +11,7 @@ class HighlightedPropertyController extends Controller
     public function store(Request $request)
     {
         HighlightedProperty::create($request->all());
-        return back();
+        return back()->with('info-message','This property is now the highlighted property on the home page');
     }
 
     // update
@@ -20,7 +20,7 @@ class HighlightedPropertyController extends Controller
         $highlighted = HighlightedProperty::find($request->input('id'));
         $highlighted->description = $request->input('description');
         $highlighted->save();
-        return back();
+        return back()->with('success-message','Highlighted property description successfully updated');
     }
 
     // delete
@@ -29,6 +29,6 @@ class HighlightedPropertyController extends Controller
         $item = HighlightedProperty::find($id);
         $item->active = 0;
         $item->save();
-        return back();
+        return back()->with('info-message','Property removed as highlighted property');
     }
 }
