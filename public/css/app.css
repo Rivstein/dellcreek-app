@@ -2795,9 +2795,18 @@ iframe {
 .mt-1 {
   margin-top: 0.25rem;
 }
+<<<<<<< HEAD
 .mt-20 {
   margin-top: 5rem;
 }
+=======
+<<<<<<< HEAD
+.mt-20 {
+  margin-top: 5rem;
+}
+=======
+>>>>>>> a9e8b56429850b0c965af2b1052c1f1580c7ab5d
+>>>>>>> c890f8915b2420dd299e9e26e35c9b7f11c71594
 .mr-2 {
   margin-right: 0.5rem;
 }
@@ -2816,6 +2825,18 @@ iframe {
 .mr-1 {
   margin-right: 0.25rem;
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+.mt-20 {
+  margin-top: 5rem;
+}
+>>>>>>> f659b640cd4ae3e7f27fcfff54bcb17badfbf52b
+>>>>>>> a9e8b56429850b0c965af2b1052c1f1580c7ab5d
+>>>>>>> c890f8915b2420dd299e9e26e35c9b7f11c71594
 .-mr-2 {
   margin-right: -0.5rem;
 }
@@ -2834,6 +2855,21 @@ iframe {
 .mt-16 {
   margin-top: 4rem;
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+.ml-auto {
+  margin-left: auto;
+}
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+>>>>>>> f659b640cd4ae3e7f27fcfff54bcb17badfbf52b
+>>>>>>> a9e8b56429850b0c965af2b1052c1f1580c7ab5d
+>>>>>>> c890f8915b2420dd299e9e26e35c9b7f11c71594
 .box-content {
   box-sizing: content-box;
 }
@@ -2924,11 +2960,32 @@ iframe {
 .w-64 {
   width: 16rem;
 }
+.w-64 {
+  width: 16rem;
+}
 .w-fit {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+.w-72 {
+  width: 18rem;
+}
+.w-80 {
+  width: 20rem;
+}
+.w-20 {
+  width: 5rem;
+}
+>>>>>>> f659b640cd4ae3e7f27fcfff54bcb17badfbf52b
+>>>>>>> a9e8b56429850b0c965af2b1052c1f1580c7ab5d
+>>>>>>> c890f8915b2420dd299e9e26e35c9b7f11c71594
 .min-w-full {
   min-width: 100%;
 }
@@ -3153,6 +3210,33 @@ iframe {
   --tw-bg-opacity: 1;
   background-color: rgb(187 247 208 / var(--tw-bg-opacity));
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+.bg-yellow-100 {
+>>>>>>> f659b640cd4ae3e7f27fcfff54bcb17badfbf52b
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 249 195 / var(--tw-bg-opacity));
+}
+.bg-green-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 252 231 / var(--tw-bg-opacity));
+}
+.bg-red-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
+}
+.bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+.bg-green-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(187 247 208 / var(--tw-bg-opacity));
+}
+>>>>>>> a9e8b56429850b0c965af2b1052c1f1580c7ab5d
+>>>>>>> c890f8915b2420dd299e9e26e35c9b7f11c71594
 .bg-gradient-to-t {
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
 }

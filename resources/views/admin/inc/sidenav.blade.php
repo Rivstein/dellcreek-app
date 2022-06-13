@@ -3,7 +3,8 @@
     $menu_items = [
         ['name'=> 'Dashboard', 'url'=>'dashboard', 'icon' => 'fa-gauge-high'],
         ['name'=> 'Properties', 'url'=>'admin/properties/manager', 'icon' => 'fa-rectangle-list'],
-        ['name'=> 'CRM', 'url'=>'index', 'icon' => 'fa-headset']
+        ['name'=> 'CRM', 'url'=>'index', 'icon' => 'fa-headset'],
+        ['name'=> 'Users & security', 'url'=>'user_security/manager', 'icon' => 'fa-user-lock']
     ];
 @endphp
 
