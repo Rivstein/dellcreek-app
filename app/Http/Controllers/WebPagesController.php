@@ -21,6 +21,18 @@ class WebPagesController extends Controller
         return view('landing')->with($data);
     }
 
+    // contact
+    public function contact()
+    {
+        return view('web.contact');
+    }
+
+    // about
+    public function about()
+    {
+        return view('web.about');
+    }
+
     /**
      * Get property counties and order them from the one
      * with the most properties to the one with the least

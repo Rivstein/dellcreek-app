@@ -82,9 +82,30 @@
                     @enderror
                 </div>
 
+                {{-- title deed --}}
+                <div class="p-3 md:w-1/3 w-full">
+                    <label class="block py-2">Has title deed</label>
+                    <label for="has-title" class="pr-2">
+                        <input type="radio" id="has-title" name="hasTitle" value="1" 
+                         @if (old('hasTitle') == 1)
+                             checked
+                         @endif
+                        > Yes
+                    </label>
+                    <label for="has-no-title">
+                        <input type="radio" id="has-no-title" name="hasTitle" value="0"
+                         @if (old('hasTitle') == 0 )
+                             checked  
+                         @endif
+                        > No
+                    </label>
+                    @error('hasTitle')
+                        <div class="text-xs text-red-500">{{ $message }}</div>
+                    @enderror
+                </div>
+
             </div>
         </div>
-
         {{-- description --}}
         <div class="p-2 border-b border-b-gray-500">
             <h1 class="text-lg font-bold mb-3">Property description</h1>

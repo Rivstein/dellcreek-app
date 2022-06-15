@@ -31,7 +31,7 @@
         <div id="counties-carousel" class="owl-carousel px-2">
             @if ($counties)
                 @foreach ($counties as $county)
-                    <div class="rounded-md shadow-md h-72" style="background-image: url({{ asset('img/land/land1.jpg') }})">
+                    <div class="rounded-md shadow-md h-72" style="background-image: url({{ asset('img/land/land6.jpg') }})">
                         <a href="#">
                             <div class="relative rounded-md bg-black/50 h-full w-full">
                                 <h1 class="text-xl p-4 font-bold text-white">{{ $county }}</h1>

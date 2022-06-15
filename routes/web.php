@@ -71,9 +71,15 @@ Route::controller(WebPropertiesController::class)->
     Route::get('property/{id}','property');
 });
 
+// contact webpage route
+Route::get('contact','WebPagesController@contact');
+
 // contact forms route 
 Route::post('contact/{type}/{origin}/{property_id?}','ContactController@store')->name('contact');
 
+// about webpage route
+Route::get('about_us','WebPagesController@about');
+ 
 // user account routes
 Route::get('profile','UserAccountController@profile');
 
