@@ -26,6 +26,9 @@
     .btn-light{
       @apply flex items-center w-fit bg-gray-600 hover:bg-gray-700 shadow hover:shadow-lg text-sm text-white font-bold px-4 py-2 rounded-md
     }
+    .btn-sm{
+      @apply py-1 text-sm
+    }
     .btn-primary{
       @apply bg-blue-600 hover:bg-blue-700
     }

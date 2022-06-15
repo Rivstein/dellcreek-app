@@ -49,6 +49,17 @@ Route::controller(UserSecurityController::class)
     Route::get('manager','index');
 });
 
+// access control routes
+Route::controller(AccessControlController::class)
+->prefix('access_control')->as('access_control.')
+->group(function () {
+    Route::get('manager/{type}','index');
+    Route::post('store/{type}','store')->name('store');
+    Route::patch('store/{type}/{id?}','update')->name('store');
+    Route::get('show/{type}/{id}','show');
+    Route::get('delete/{type}/{id}','delete');
+});
+
 
 // Web Routes
 Route::controller(WebPropertiesController::class)->
