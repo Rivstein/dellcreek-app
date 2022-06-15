@@ -56,8 +56,11 @@ Route::controller(AccessControlController::class)
     Route::get('manager/{type}','index');
     Route::post('store/{type}','store')->name('store');
     Route::patch('store/{type}/{id?}','update')->name('store');
-    Route::get('show/{type}/{id}','show');
+    Route::get('role/{id}','showRole');
+    Route::get('permission/{id}','showPermission');
     Route::get('delete/{type}/{id}','delete');
+    Route::post('role_permissions/{id}','rolePermissions')->name('role_permissions');
+    Route::post('permission_roles/{id}','permissionRoles')->name('permission_roles');
 });
 
 

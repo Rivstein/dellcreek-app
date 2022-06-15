@@ -40,7 +40,7 @@
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->description }}</td>
                         <td>
-                            <a href="{{ url('access_control/show/'.$type.'/'.$item->id) }}" class="btn-primary btn-sm">
+                            <a href="{{ url('access_control/'.$type.'/'.$item->id) }}" class="btn-primary btn-sm">
                                 Manage
                                 <i class="fa-solid fa-screwdriver-wrench pl-2"></i>
                             </a>

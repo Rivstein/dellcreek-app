@@ -39,6 +39,14 @@
                     <input type="text" name="display_name" value="{{ $value->display_name ?? '' }}" class="form-input" required>
                 </div>
 
+                {{-- type --}}
+                @if ($type == 'permission')
+                  <div class="mb-3">
+                    <label>Type</label>
+                    <input type="text" name="type" value="{{ $value->type ?? '' }}" class="form-input" required>
+                  </div>    
+                @endif
+
                 {{-- description --}}
                 <div class="mb-3">
                     <label>Description</label>

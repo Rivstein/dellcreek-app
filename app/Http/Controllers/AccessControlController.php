@@ -46,26 +46,33 @@ class AccessControlController extends Controller
     }
 
     /**
-     * Show single role/permission
+     * Show role
      */
-    public function show($type, $id)
+    public function showRole($id)
     {
-        $model = app("App\Models\\$type");
-        $value = $model::find($id);
-
-        $roles = Role::all();
+        $role = Role::find($id);
         $permissions = Permission::all();
 
-        return view('admin.user_security.'.$type, compact(
-            'value',
-            'type',
-            'roles',
+        return view('admin.user_security.role', compact(
+            'role',
             'permissions'
         ));
     }
 
     /**
-     * Update
+     * Show permission
+     */
+    public function showPermission($id)
+    {
+        $permission = Permission::find($id);
+
+        return view('admin.user_security.permission', compact(
+            'permission'
+        ));
+    }
+
+    /**
+     * Update role/permission
      */
     public function update(Request $request, $type, $id)
     {
@@ -80,7 +87,7 @@ class AccessControlController extends Controller
     }
 
     /**
-     * Delete
+     * Delete role/permission
      */
     public function delete($type, $id)
     {
@@ -88,5 +95,31 @@ class AccessControlController extends Controller
         $value = $model::find($id);
         $value->delete();
         return redirect('access_control/manager/'.$type)->with('warning-message',$type.' deleted');
+    }
+
+    /**
+     * sync a role's permissions
+     */
+    public function rolePermissions(Request $request, $id)
+    {
+        $role = Role::find($id);
+        $permissions = $request->input('permissions');
+
+        $role->syncPermissions($permissions);
+
+        return back()->with('info-message', 'Permissions updated');
+    }
+
+    /**
+     * sync a permission's roles
+     */
+    public function permissionRoles(Request $request, $id)
+    {
+        $permission = Permission::find($id);
+        $roles = $request->input('roles');
+
+        $permission->roles()->sync($roles);
+
+        return back()->with('info-message', 'Roles updated');
     }
 }
