@@ -25,6 +25,7 @@ class CreatePropertiesTable extends Migration
             $table->string('sub_county');
             $table->string('location');
             $table->boolean('listed')->default(true);
+            $table->boolean('hasTitle')->default(false);
             $table->timestamps();
         });
     }

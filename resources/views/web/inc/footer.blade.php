@@ -43,11 +43,11 @@
                 </li>
                 <li class="my-4 flex">
                     <i class="fa-solid fa-phone text-xl text-yellow-400 pr-4"></i>
-                    <span>+ 254 712345678</span>
+                    <span>+ 254 715731111</span>
                 </li>
                 <li class="my-4 flex">
                     <i class="fa-solid fa-envelope text-xl text-yellow-400 pr-4"></i>
-                    <span>dellcreek@gmail.com</span>
+                    <span>info@dellcreek.co.ke</span>
                 </li>
             </ul>
         </div>
