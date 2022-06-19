@@ -14,7 +14,9 @@
                         {{-- support phone number --}}
                         <div class=" py-2">
                             <span><i class=" fa fa-phone text-yellow-400 pr-4"></i></span>
-                            <span class="text-sm font-bold">+254 715731111</span>
+                            @isset($footerData)
+                                <span class="text-sm font-bold">{{ $footerData[5] }}</span>
+                            @endisset
                         </div>
 
                         {{-- support email address --}}
@@ -42,18 +44,20 @@
                 {{-- social media links --}}
                 <div class="absolute bottom-0 right-0 left-0 ">
                     <div class="flex items-center text-sm m-4">
-                        <a href="#" class="mr-4">
-                            <i class="fa-brands fa-facebook text-2xl text-yellow-500"></i>
-                        </a>
-                        <a href="#" class="mr-4">
-                            <i class="fa-brands fa-twitter text-2xl text-yellow-500"></i>
-                        </a>
-                        <a href="#" class="mr-4">
-                            <i class="fa-brands fa-instagram text-2xl text-yellow-500"></i>
-                        </a>
-                        <a href="#" class="mr-4">
-                            <i class="fa-brands fa-whatsapp text-2xl text-yellow-500"></i>
-                        </a>
+                        @isset($footerData)
+                            <a href="{{ $footerData[1] }}" class="mr-4">
+                                <i class="fa-brands fa-facebook text-xl text-yellow-500"></i>
+                            </a>
+                            <a href="{{ $footerData[2] }}" class="mr-4">
+                                <i class="fa-brands fa-twitter text-xl text-yellow-500"></i>
+                            </a>
+                            <a href="{{ $footerData[3] }}" class="mr-4">
+                                <i class="fa-brands fa-instagram text-xl text-yellow-500"></i>
+                            </a>
+                            <a href="{{ $footerData[4] }}" class="mr-4">
+                                <i class="fa-brands fa-whatsapp text-xl text-yellow-500"></i>
+                            </a>
+                        @endisset
                     </div>
                 </div>
             </div>
