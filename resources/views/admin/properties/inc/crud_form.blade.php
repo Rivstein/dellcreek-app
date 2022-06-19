@@ -87,16 +87,22 @@
                     <label class="block py-2">Has title deed</label>
                     <label for="has-title" class="pr-2">
                         <input type="radio" id="has-title" name="hasTitle" value="1" 
-                         @if (old('hasTitle') == 1)
-                             checked
-                         @endif
+                        @if (old('hasTitle') === 1)
+                            checked
+                        @elseif(isset($property) && $property->hasTitle)
+                            checked
+                        @endif
                         > Yes
                     </label>
                     <label for="has-no-title">
                         <input type="radio" id="has-no-title" name="hasTitle" value="0"
-                         @if (old('hasTitle') == 0 )
-                             checked  
-                         @endif
+                        @if (old('hasTitle') === 0)
+                            checked
+                        @elseif(isset($property) && !$property->hasTitle)
+                            checked
+                        @elseif(!isset($property) && old('hasTitle') === null)
+                            checked
+                        @endif
                         > No
                     </label>
                     @error('hasTitle')

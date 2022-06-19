@@ -22,6 +22,9 @@
     {{-- footer --}}
     @include('web.inc.footer')
 
+    {{-- auth modals --}}
+    @include('auth.modals')
+
 @endsection
 
 @section('appjs')

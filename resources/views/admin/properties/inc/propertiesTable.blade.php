@@ -3,6 +3,7 @@
     <table id="myTable" class="display cell-border compact">
         <thead>
             <th>Name</th>
+            <th>Title deed</th>
             <th>Price</th>
             <th>Size</th>
             <th>Status</th>
@@ -13,6 +14,17 @@
                 @foreach ($properties as $property)
                     <tr class="text-sm">
                         <td>{{ $property->name }}</td>
+                        <td>
+                            @if ($property->hasTitle)
+                                <div class="text-green-600 font-bold">
+                                    Available
+                                </div> 
+                            @else
+                                <div class="text-red-600 font-bold">
+                                    Unavailable
+                                </div>
+                            @endif
+                        </td>
                         <td class="font-bold">
                             Ksh {{ number_format($property->price) }}
                         </td>

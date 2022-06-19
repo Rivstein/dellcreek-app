@@ -12,7 +12,7 @@ class Property extends Model
     protected $guarded = [];
 
     /**
-     * Get the highlighted for the property.
+     * Get the highlighted for this property.
      */
     public function highlights()
     {
@@ -20,10 +20,18 @@ class Property extends Model
     }
 
     /**
-     * Get the images for the property.
+     * Get the images for this property.
      */
     public function images()
     {
         return $this->hasMany(PropertyImage::class);
+    }
+
+    /**
+     * Get users watching this property.
+     */
+    public function watchers()
+    {
+        return $this->belongsToMany(User::class, 'property_watch');
     }
 }

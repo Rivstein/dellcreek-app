@@ -8,6 +8,13 @@
             <i class="fa-solid fa-location-dot pr-2"></i>
             {{ $property->county }}
         </div>
+        {{-- title --}}
+        @if ($property->hasTitle)
+            <div class="absolute top-0 right-0 bg-green-300 shadow-lg text-xs font-bold m-2 rounded px-2">
+                <i class="fa-solid fa-certificate text-red-600"></i>
+                Title deed
+            </div>    
+        @endif
         {{-- price --}}
         <div class="absolute bottom-20 right-0 m-2 bg-yellow-400 rounded px-4 shadow-lg font-bold">
             Ksh {{ number_format($property->price) }}

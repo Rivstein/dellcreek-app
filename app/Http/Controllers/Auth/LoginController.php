@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -26,7 +27,29 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    public function redirectTo()
+    {
+        $user = auth()->user();
+        
+        if ($user->isAbleTo('access-admin')) {
+            return '/dashboard';
+        }
+        
+        // return back if prev url not login
+        if( url()->previous() != route('login') ){
+            return url()->previous();
+        }
+        
+        return '/';
+    }
+
+    /**
+     * Logout redirect
+     */
+    public function logout(Request $request) {
+        auth()->logout();
+        return redirect('/login')->with('info-message','You are logged out. Login to continue');
+    }
 
     /**
      * Create a new controller instance.

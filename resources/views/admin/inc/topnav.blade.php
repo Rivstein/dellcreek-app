@@ -2,7 +2,9 @@
 <div class="admin-topnav px-4 py-2 shadow border-b border-b-gray-500 flex justify-between items-center">
 	<div class="py-1">
 		<h2 class=" font-bold text-lg">
-			Dellcreek Admin
+			<a href="{{ url('dashboard') }}">
+				Dellcreek Admin
+			</a>
 		</h2>
 	</div>
 	<div class="flex items-center">
@@ -61,9 +63,18 @@
 			<button class="hover:text-blue-800" id="countyDropdown" data-bs-toggle="dropdown" aria-expanded="false">
 				<i class="fa-solid fa-user-circle"></i>
 			</button>
-			<div class="dropdown-menu absolute bg-white pb-4 rounded px-4 border border-gray-500 min-w-max list-none z-50 hidden"
+			<div class="dropdown-menu absolute bg-white rounded border border-gray-500 min-w-max z-50 hidden"
 				aria-labelledby="countyDropdown">
-				user
+				{{-- my account web --}}
+				<a href="{{ url('profile') }}" class="block border-b py-2 px-4 text-sm hover:bg-gray-100">
+					<i class="fa-solid fa-user pr-2"></i>
+                    My Account
+				</a>
+				{{-- logout --}}
+				<a href="{{ url('/logout') }}" class="block border-b py-2 px-4 text-sm hover:bg-gray-100">
+					<i class="fa-solid fa-power-off pr-2"></i>
+                    Logout
+				</a>
 			</div>
 		</div>
 

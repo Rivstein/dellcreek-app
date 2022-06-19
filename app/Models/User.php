@@ -44,4 +44,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get properties watched by this user.
+     */
+    public function watching()
+    {
+        return $this->belongsToMany(Property::class, 'property_watch');
+    }
 }

@@ -9,7 +9,7 @@
         <a href="#" class="flex md:h-80 h-64 group" data-bs-toggle="modal" data-bs-target="#propertyImages">
             {{-- main --}}
             <div class="p-1 md:w-3/4 w-full">
-                <img class="md:rounded-tl-xl group-hover:scale-105 transition ease-in-out md:rounded-bl-xl w-full h-full object-cover shadow-md"
+                <img class="md:rounded-tl-xl md:rounded-bl-xl w-full h-full object-cover shadow-md"
                     src="{{ asset('storage/'.$property->image) }}" alt="{{ $property->name.$property->image }}">
             </div>
             {{-- other images --}}
@@ -36,11 +36,19 @@
                 </div>
             </div>
         </a>
-        {{-- for sale badge --}}
+        {{-- for sale and title deed badge --}}
         <div class="absolute top-0 left-0 m-4">
-            <span class="bg-white shadow-lg rounded px-2 py-1 font-semibold text-xs">
-                FOR SALE
-            </span>
+            <div class="flex items-center">
+                <div class="bg-white shadow-lg mx-2 rounded px-2 py-1 font-semibold text-xs">
+                    FOR SALE
+                </div>
+                @if ($property->hasTitle)
+                    <div class="bg-white shadow-lg mx-2 rounded px-2 py-1 font-semibold text-xs">
+                        <i class="fa-solid fa-certificate text-red-600"></i>
+                        TITLE DEED
+                    </div>    
+                @endif
+            </div>
         </div>
         {{-- total images badge --}}
         <div class="absolute bottom-0 right-0 m-4">
@@ -76,6 +84,13 @@
                         <i class="fa-solid fa-ruler-combined pr-2 text-yellow-500"></i>
                         {{ $property->dimensions }}
                     </div>
+                    {{-- title deed --}}
+                    @if ($property->hasTitle)
+                        <div class="mt-2 font-bold">
+                            <i class="fa-solid fa-certificate pr-2 text-red-600"></i>
+                            Title deed available.
+                        </div>   
+                    @endif
                 </div>
                 {{-- price --}}
                 <div class="md:w-1/2 md:text-right">
@@ -90,11 +105,56 @@
                         </span>
                     </div>
                     {{-- check installments --}}
-                    <button type="button" class="btn-warning text-lg my-3 text-md md:float-right" data-bs-toggle="modal"
+                    <button type="button" class="btn-warning my-3 md:float-right" data-bs-toggle="modal"
                         data-bs-target="#exampleModal">
                         Calculate Installments
                     </button>
                 </div>
+            </div>
+
+            {{-- watch property --}}
+            <div class="bg-green-100 text-center shadow-lg border border-green-600 p-4 mb-8">
+                <div class="font-semibold text-sm mb-3">
+                    <b class="bg-green-400 px-1 mr-1 rounded-md">{{ count($property->watchers) }}</b> 
+                    people are watching this property
+                </div>
+                @auth
+                    @if (auth()->user()->watching()->find($property->id))
+                        {{-- unwatch --}}
+                        <div class="font-semibold bg-green-400 inline-block p-2 rounded shadow-lg mb-3"> 
+                            You are watching this property
+                        </div>
+                        <form action="{{ route('unwatch',['property_id' => $property->id]) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="bg-red-400 text-sm font-bold px-4 py-1 rounded shadow-md hover:bg-red-300 hover:shadow-lg">
+                                <i class="fa fa-eye-slash pr-2"></i>
+                                Unwatch property
+                            </button>    
+                        </form>
+                    @else
+                        {{-- watch --}}
+                        <form action="{{ route('watch',['property_id' => $property->id]) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="bg-green-400 text-sm font-bold px-4 py-1 rounded shadow-md hover:bg-green-300 hover:shadow-lg">
+                                <i class="fa fa-eye pr-2"></i>
+                                Watch property
+                            </button>    
+                        </form>    
+                    @endif
+
+                    {{-- my watched properties --}}
+                    <a href="{{ url('profile') }}" class="block mt-4 font-semibold text-blue-800 text-sm hover:underline">
+                        View watched properties
+                    </a>
+                @else
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#loginModal" class="bg-green-400 text-sm font-bold px-4 py-1 rounded shadow-md hover:bg-green-300 hover:shadow-lg">
+                        <i class="fa fa-eye pr-2"></i>
+                        Watch property
+                    </button>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#loginModal" class="inline-block w-full mt-4 font-semibold text-blue-800 text-sm hover:underline">
+                        View watched properties
+                    </button>
+                @endauth
             </div>
 
             {{-- location and map --}}
@@ -130,65 +190,19 @@
         <div class="md:w-1/3 w-full md:pl-8  p-2">
          {{-- request actions --}}
             {{-- request btn --}}
-            <div class="flex">
+            <div class="flex"  id="propertyActions">
                 <button class="w-1/2 font-Inter text-md request-btn p-2 border-t border-l border-r font-bold" data-id="tour-form" >Schedule visit</button>
                 <button class="w-1/2 font-sans text-md request-btn p-2 border-b" data-id="info-form" >Request Info</button>
             </div>
-            {{-- tour form --}}
+            {{-- schedule form --}}
             <div class="shadow-lg pt-4 border-b border-l border-r p-4 request-form" id="tour-form">
-                <form action="{{ route('contact',['type' => 'site_visit', 'origin' => 'property page', 'property_id' => $property->id]) }}" method="POST">
-                    @csrf
-                    {{-- date  --}}
-                    <label for="" class="font-mono">Date</label>
-                    <input type="date" class="form-input w-full mt-2 mb-3" name="date" required>
-
-                    {{-- phone number --}}
-                    <label for="" class="font-mono">Phone number</label>
-                    <input type="text" class="form-input w-full mt-2 mb-3" name="phone_number" placeholder="Enter your phone number" required>
-
-                    {{-- email --}}
-                    <label for="" class="font-mono">Email</label>
-                    <input type="email" class="form-input w-full mt-2 mb-3" name="email" placeholder="Enter your email address" required>
-
-                    {{-- message --}}
-                    <label for="" class="font-mono">Message</label>
-                    <textarea name="message" id=""  rows="3" class="form-input w-full mt-2 mb-3" required>I would like to schedule a site visit for {{$property->name}}</textarea>
-
-                    {{-- submit btn --}}
-                    <div class=" flex justify-center">
-                        <button class="btn-warning  mt-6 my-2">
-                            Send Request
-                            <i class="pl-4 fa-solid fa-arrow-up-right-from-square"></i>
-                        </button>
-                    </div>
-                </form>
+                @include('web.contact.schedule',['origin' => 'property page'])
             </div>
-
-            {{-- info form --}}
+            {{-- request info form --}}
             <div class="shadow-lg border-b border-l border-r pt-4 p-2 hidden request-form" id="info-form">
-                <form action="{{ route('contact',['type' => 'request_info', 'origin' => 'property page', 'property_id' => $property->id]) }}" method="POST">
-                    @csrf
-                    {{-- phone number --}}
-                    <label for="" class="font-mono">Phone number</label>
-                    <input type="text" class="form-input w-full mt-2 mb-3" name="phone_number" placeholder="Enter your phone number" required>
-
-                    {{-- email --}}
-                    <label for="" class="font-mono">Email</label>
-                    <input type="email" class="form-input w-full mt-2 mb-3" name="email" placeholder="Enter your email address" required>
-
-                    {{-- message --}}
-                    <label for="" class="font-mono">Message</label>
-                    <textarea name="message" id="" rows="3" class="form-input w-full mt-2 mb-3" required>I am interested in {{$property->name}}</textarea>
-
-                    {{-- submit btn --}}
-                    <div class=" flex justify-center">
-                        <button class="btn-warning  mt-6 my-2" type="submit">
-                            Send Request
-                            <i class="pl-4 fa-solid fa-arrow-up-right-from-square"></i>
-                        </button>
-                    </div>
-                </form>
+                @include('web.contact.request_info',['origin' => 'property page'])
             </div>
+            
         </div>
 
     </div>

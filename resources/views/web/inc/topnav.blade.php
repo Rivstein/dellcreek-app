@@ -1,10 +1,10 @@
 {{-- php --}}
 @php
 $menu_items = [
-'about_us' => 'About',
-'properties' => 'Properties',
-'sell_property' => 'Sell',
-'contact' => 'Contact',
+    'about_us' => 'About',
+    'properties/all' => 'Properties',
+    'sell_property' => 'Sell',
+    'contact' => 'Contact',
 ]
 @endphp
 
@@ -33,10 +33,8 @@ $menu_items = [
     {{-- search, auth & mobile icon--}}
     <div class="flex items-center">
         {{-- search --}}
-        <div
-            class="hidden lg:flex w-64 items-center border border-gray-500 bg-gray-50 hover:bg-gray-100 px-4 py-2 rounded shadow focus-within:shadow-lg">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" class="ml-4" placeholder="Search properties">
+        <div class="hidden lg:flex w-64 items-center ">
+            @include('web.inc.search_bar')
         </div>
         {{-- auth --}}
         <div class="dropdown relative ml-8 md:mr-0 mr-8">
@@ -78,6 +76,20 @@ $menu_items = [
                     </li>
                 @else
                     <li>
+                        <a href="{{ url('profile') }}" class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100" href="#">
+                            <i class="fa-solid fa-user pr-2"></i>
+                            My Account
+                        </a>
+                    </li>
+                    @if (auth()->user()->isAbleTo('access-admin'))
+                        <li>
+                            <a href="{{ url('dashboard') }}" class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100" href="#">
+                                <i class="fa-solid fa-gauge-high pr-2"></i>
+                                Dashboard
+                            </a>
+                        </li>   
+                    @endif
+                    <li>
                         <a href="{{ url('/logout') }}" class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100" href="#">
                             <i class="fa-solid fa-power-off pr-2"></i>
                             Logout
@@ -94,5 +106,5 @@ $menu_items = [
 </div>
 
 {{-- clear fix --}}
-<div class="mt-16"></div>
+<div class="mb-16"></div>
 

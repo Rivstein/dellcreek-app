@@ -115,6 +115,23 @@ class AdminPropertiesController extends Controller
         return back()->with('success-message','Property main image replaced');
     }
 
+    /**
+     * Update properties listing status
+     */
+    public function listing($id)
+    {
+        $property = Property::find($id);
+        $property->listed = !$property->listed;
+        $property->save();
+
+        if($property->listed){
+            return back()->with('success-message', 'Property listed, it is now visible in the public pages');
+        }
+        else{
+            return back()->with('danger-message', 'Property unlisted, it is now not visible in the public pages');
+        }
+    }
+
     // upload property image
     public function uploadImage(Request $request, $property_id)
     {

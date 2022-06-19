@@ -21,6 +21,10 @@ class ContactController extends Controller
         $contact->property_id = $property_id;
         $contact->save();
 
+        if($origin == 'account profile'){
+            return redirect('profile')->with('success-message','Success! Thank you for using dellcreek services');
+        }
+
         return back()->with('success-message','Success! Thank you for using dellcreek services');
     }
 

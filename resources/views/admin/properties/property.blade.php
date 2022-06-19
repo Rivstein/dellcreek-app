@@ -98,6 +98,17 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{ url('admin/properties/listing/'.$property->id) }}" class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100">
+                            @if ($property->listed)
+                                <i class="fa-solid fa-circle-xmark pr-2 text-red-600"></i>
+                                Unlist property    
+                            @else
+                                <i class="fa-solid fa-circle-check pr-2 text-green-800"></i>
+                                List property  
+                            @endif
+                        </a>
+                    </li>
+                    <li>
                         <a href="#" data-bs-toggle="modal" data-bs-target="#deletePropertyModal" class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100">
                             <i class="fa fa-trash pr-2 text-red-800"></i>
                             Delete property
@@ -113,29 +124,79 @@
         {{-- details --}}
         <div class="p-4 md:w-1/4 border-r border-r-gray-500">
             {{-- name --}}
-            <h3 class="text-lg font-bold mb-3">
-                {{ $property->name }}
-            </h3>
+            <div class="mb-3">
+                <div class="font-bold">Name</div>
+                <div class="text-sm px-2">
+                    {{ $property->name }}    
+                </div>
+            </div>
             {{-- image --}}
             <div class="mb-3">
-                <img src="{{ asset('storage/'.$property->image) }}" class="shadow-md" alt="">
+                <div class="font-bold">Main image</div>
+                <img src="{{ asset('storage/'.$property->image) }}" class="shadow-md px-2" alt="">
             </div>
-            {{-- price --}}
-            <div class="mt-3 font-bold">
-                Ksh {{ number_format($property->price) }}
-            </div>
-            {{-- price --}}
-            <div class="mt-1 font-bold">
-                Size: {{ $property->dimensions }}
-            </div>
-            {{-- location --}}
-            <div class="mt-1 font-bold">
-                <h1 class="text-lg mt-2 underline">Local information</h1>
-                <div>
-                    {{ $property->county }},
-                    {{ $property->sub_county }}
+            {{-- status --}}
+            <div class="mb-3">
+                <div class="font-bold">Status</div>
+                <div class="text-sm px-2">
+                    @if ($property->listed == true)
+                        <div class="text-green-600 font-bold">
+                            Listed
+                        </div>
+                    @else
+                        <div class="text-red-600 font-bold">
+                            Unlisted
+                        </div>
+                    @endif 
                 </div>
-                <div class="mt-2">
+            </div>
+            {{-- price --}}
+            <div class="mb-3">
+                <div class="font-bold">Price</div>
+                <div class="text-sm px-2">
+                    Ksh {{ number_format($property->price) }} 
+                </div>
+            </div>
+            {{-- size --}}
+            <div class="mb-3">
+                <div class="font-bold">Size</div>
+                <div class="text-sm px-2">
+                    {{ $property->dimensions }}
+                </div>
+            </div>
+            {{-- title deed --}}
+            <div class="mb-3">
+                <div class="font-bold">Title deed</div>
+                <div class="text-sm px-2">
+                    @if ($property->hasTitle)
+                        <div class="text-green-600 font-bold">
+                            Available
+                        </div> 
+                    @else
+                        <div class="text-red-600 font-bold">
+                            Unavailable
+                        </div>
+                    @endif
+                </div>
+            </div>
+            {{-- county--}}
+            <div class="mb-3">
+                <div class="font-bold">County</div>
+                <div class="text-sm px-2">
+                    {{ $property->county }}    
+                </div>
+            </div>
+            {{-- sub county--}}
+            <div class="mb-3">
+                <div class="font-bold">Sub county</div>
+                <div class="text-sm px-2">
+                    {{ $property->sub_county }}    
+                </div>
+            </div>
+            {{-- location : local information --}}
+            <div class="mb-3">
+                <div class="font-bold">Local information</div>
+                <div class="text-sm px-2">
                     {{ $property->location }}
                 </div>
             </div>

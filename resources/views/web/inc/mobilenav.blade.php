@@ -2,8 +2,8 @@
 @php
     $mobileMenuItems = [
         ['name' => 'Home', 'url' => '/', 'icon' => 'fa-house'],
-        ['name' => 'Properties', 'url' => 'properties', 'icon' => 'fa-landmark'],
-        ['name' => 'About', 'url' => 'about', 'icon' => 'fa-circle-info'],
+        ['name' => 'Properties', 'url' => 'properties/all', 'icon' => 'fa-landmark'],
+        ['name' => 'About', 'url' => 'about_us', 'icon' => 'fa-circle-info'],
         ['name' => 'Contact', 'url' => 'contact', 'icon' => 'fa-phone'],
         ['name' => 'Sell', 'url' => 'sell', 'icon' => 'fa-money-bill-wave'],
     ]

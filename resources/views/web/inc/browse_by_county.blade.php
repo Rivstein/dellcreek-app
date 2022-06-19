@@ -32,7 +32,7 @@
             @if ($counties)
                 @foreach ($counties as $county)
                     <div class="rounded-md shadow-md h-72" style="background-image: url({{ asset('img/land/land6.jpg') }})">
-                        <a href="#">
+                        <a href="{{ url('properties/county/'.$county) }}">
                             <div class="relative rounded-md bg-black/50 h-full w-full">
                                 <h1 class="text-xl p-4 font-bold text-white">{{ $county }}</h1>
                                 <button class="absolute bottom-0 left-0 btn-light py-1 m-4 text-sm">

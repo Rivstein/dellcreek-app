@@ -26,7 +26,7 @@
                         </h4>
                         <div class="flex justify-center md:justify-start">
                             {{-- item --}}
-                            <a href="#"
+                            <a href="{{ url('properties/all') }}"
                                 class="bg-yellow-600 hover:bg-yellow-700 hover:shadow-md mr-3 rounded-md text-white font-bold shadow px-8 py-2">
                                 Discover
                             </a>
@@ -73,7 +73,7 @@
         
         {{-- discover more btn --}}
         <div class="text-center pt-4 pb-20">
-            <a href="#" class="bg-yellow-600 hover:bg-yellow-700 hover:shadow-lg py-4 px-8 shadow text-white rounded font-bold">
+            <a href="{{ url('properties/all') }}" class="bg-yellow-600 hover:bg-yellow-700 hover:shadow-lg py-4 px-8 shadow text-white rounded font-bold">
                 View more properties
             </a>
         </div>
