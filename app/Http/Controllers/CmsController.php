@@ -88,7 +88,7 @@ class CmsController extends Controller
             ['name' => 'twitter', 'target' => 'Footer', 'url' => url('/')],
             ['name' => 'instagram', 'target' => 'Footer', 'url' => url('/')],
             ['name' => 'whatsapp', 'target' => 'Footer', 'url' => url('/')],
-            ['name' => 'phonenumber', 'target' => 'Footer', 'url' => url('/')],
+            ['name' => 'phone number', 'target' => 'Footer', 'url' => url('/')],
             ['name' => 'location', 'target' => 'Footer', 'url' => url('/')],
             ['name' => 'about-text', 'target' => 'About', 'url' => url('about_us#about_us-text')],
             ['name' => 'goal', 'target' => 'About', 'url' => url('about_us#goal')],
