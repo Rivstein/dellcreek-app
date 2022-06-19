@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Property;
 use App\Models\HighlightedProperty;
+use App\Models\WebCms;
+use App\Models\Staff;
 
 class WebPagesController extends Controller
 {
@@ -16,21 +18,56 @@ class WebPagesController extends Controller
             'counties' => $this->getCounties(),
         ], $this->getHighlighted());
 
-        // dd($data);
+        // footer data
+        $footerData = WebCms::where('target','footer')->pluck('content')->toArray();
 
-        return view('landing')->with($data);
+        return view('landing', compact('footerData'))->with($data);
     }
 
     // contact
     public function contact()
     {
-        return view('web.contact');
+        // footer data
+        $footerData = WebCms::where('target','footer')->pluck('content')->toArray();
+
+        return view('web.contact', compact(
+            'footerData'
+        ));
     }
 
-    // about
+    /**
+     * Get data from web_cms table
+     * Get data with target as About.
+     * Get all rows from staff table
+     */
     public function about()
     {
-        return view('web.about');
+        // get all staff data contents
+        $staff = Staff::all();
+
+        // get all web_cms data from contents column
+        $aboutData = WebCms::where('target','About')->pluck('content')->toArray();
+
+        // footer data
+        $footerData = WebCms::where('target','footer')->pluck('content')->toArray();
+
+        // check if about content data is available
+        if($aboutData){
+            // set variables in reference to about sections
+            $about_text = $aboutData[0];
+            $about_goal = $aboutData[1];
+            $about_mission = $aboutData[2];
+            $about_focus = $aboutData[3];
+        }
+        
+        return view('web.about', compact(
+            'about_text',
+            'about_goal',
+            'about_mission',
+            'about_focus',
+            'staff',
+            'footerData'
+        ));
     }
 
     /**

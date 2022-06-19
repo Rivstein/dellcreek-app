@@ -10,24 +10,27 @@
                     <span>Developers</span>
                 </h3>
             </div>
-            <div class="my-4 tracking-wider">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Doloremque rerum nihil itaque debitis,
-                temporibus eaque sapiente sequi
-            </div>
+            @isset($footerData)
+                {{-- footer text --}}
+                <div class="my-4 tracking-wider" id="footer-text">
+                    {{ $footerData[0] }}
+                </div>
+            @endisset
             <div class="flex items-center my-4">
-                <a href="#" class="mr-4">
-                    <i class="fa-brands fa-facebook text-2xl text-yellow-500"></i>
-                </a>
-                <a href="#" class="mr-4">
-                    <i class="fa-brands fa-twitter text-2xl text-yellow-500"></i>
-                </a>
-                <a href="#" class="mr-4">
-                    <i class="fa-brands fa-instagram text-2xl text-yellow-500"></i>
-                </a>
-                <a href="#" class="mr-4">
-                    <i class="fa-brands fa-whatsapp text-2xl text-yellow-500"></i>
-                </a>
+                @isset($footerData)
+                    <a href="{{ $footerData[1] }}" class="mr-4">
+                        <i class="fa-brands fa-facebook text-2xl text-yellow-500"></i>
+                    </a>
+                    <a href="{{ $footerData[2] }}" class="mr-4">
+                        <i class="fa-brands fa-twitter text-2xl text-yellow-500"></i>
+                    </a>
+                    <a href="{{ $footerData[3] }}" class="mr-4">
+                        <i class="fa-brands fa-instagram text-2xl text-yellow-500"></i>
+                    </a>
+                    <a href="{{ $footerData[4] }}" class="mr-4">
+                        <i class="fa-brands fa-whatsapp text-2xl text-yellow-500"></i>
+                    </a>
+                @endisset
             </div>
         </div>
 
@@ -38,12 +41,18 @@
                 <li class="my-4 flex">
                     <i class="fa-solid fa-location-dot text-xl text-yellow-400 pr-4"></i>
                     <span class="text-sm">
-                        Dellcreek Developers ltd, cKrishna Centre, Westlands
+                        @isset($footerData)
+                        {{ $footerData[6] }}
+                        @endisset
                     </span>
                 </li>
                 <li class="my-4 flex">
                     <i class="fa-solid fa-phone text-xl text-yellow-400 pr-4"></i>
-                    <span>+ 254 715731111</span>
+                    <span>
+                        @isset($footerData)
+                        {{ $footerData[5] }}
+                        @endisset
+                    </span>
                 </li>
                 <li class="my-4 flex">
                     <i class="fa-solid fa-envelope text-xl text-yellow-400 pr-4"></i>

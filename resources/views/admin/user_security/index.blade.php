@@ -5,7 +5,7 @@
 {{-- toolbar --}}
 <div class="flex justify-between items-center">
     {{-- left --}}
-    <div class="flex items-center">
+    <div class="flex items-center"> 
         {{-- users --}}
         <button class="btn-secondary btn-sm mr-2" id="countyDropdown" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa-solid fa-users pr-2"></i>

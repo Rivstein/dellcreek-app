@@ -80,10 +80,28 @@ Route::controller(AccessControlController::class)
     Route::post('permission_roles/{id}','permissionRoles')->name('permission_roles');
 });
 
+// content managment system routes
+Route::get('content_manager','CmsController@index');
+Route::get('content_manager_setup','CmsController@setup');
+Route::get('content_manager/{target}','CmsController@targetType');
+Route::get('content/{id}','CmsController@editType');
+Route::post('content_manager_upload/{id}','CmsController@upload')->name('content_manager_upload');
+// cms team manager
+Route::get('content_manager_team','StaffController@index');
+Route::get('content_manager_team_create','StaffController@create');
+Route::post('content_manager_team_store','StaffController@store')->name('team_store');
+Route::get('team_manager/{id}','StaffController@edit');
+Route::patch('team_manager/{id}','StaffController@update')->name('team_update');
+Route::get('team_delete/{id}','StaffController@delete')->name('team_delete');
 
+<<<<<<< HEAD
 // Web Routes
 
 // web properties routes
+=======
+
+// Web Routes 
+>>>>>>> 1a1e6b6cb3f3c08899b9e75b07699fbc0f3a71b6
 Route::controller(WebPropertiesController::class)->
         prefix('properties')->as('properties.')
 ->group(function () {
