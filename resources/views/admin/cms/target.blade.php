@@ -1,7 +1,7 @@
 @extends('layouts.admin', [
     'title' => $targetName . ' website content',
     'breadcrumbs' => [
-        'CRM' => 'content_manager'
+        'CMS' => 'content_manager'
     ]
 ])
 
@@ -20,7 +20,7 @@
                     <th>URL</th>
                     <th>Actions</th>
                 </thead>
-                <tbody>
+                <tbody class="text-sm">
                     @foreach ($webContents as $webContent)
                         <tr>
                             <td>{{ $webContent->name }}</td>

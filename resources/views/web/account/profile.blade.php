@@ -13,8 +13,8 @@
                         <div>{{ $user->email }}</div>
                         <div>{{ $user->phone_number }}</div>
                     </div>
-                    <a href="#" class="text-sm text-blue-800">
-                        <i class="fa fa-edit"></i>
+                    <a href="{{ url('settings') }}" class="text-sm text-blue-800">
+                        <i class="fa-solid fa-gear"></i>
                     </a>
                 </div>
 

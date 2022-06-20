@@ -5,7 +5,7 @@
     ],
 ])
 
-@section('page')
+@section('page') 
     {{-- action btn --}}
     <div class=" flex justify-end py-2">
         <button class="btn-primary btn-sm mr-2" id="countyDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -67,7 +67,7 @@
             </div>
 
             {{-- auth uploaded by --}}
-            <input type="hidden" name="updated_by" value="1">
+            <input type="hidden" name="updated_by" value="{{ auth()->user()->id }}">
 
             {{-- team member image --}}
             <div class="p-2 border-b border-b-gray-500">

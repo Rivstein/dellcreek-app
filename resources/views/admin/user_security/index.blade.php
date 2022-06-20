@@ -15,12 +15,12 @@
         <div class="dropdown-menu absolute bg-white rounded border border-gray-500 min-w-max z-50 hidden"
             aria-labelledby="countyDropdown">
             {{-- roles --}}
-            <a href="#" class="block border-b py-2 px-4 text-sm hover:bg-gray-100">
+            <a href="{{ url('users') }}" class="block border-b py-2 px-4 text-sm hover:bg-gray-100">
                 <i class="fa-solid fa-users text-blue-800 pr-1"></i>
                 All users
             </a>
             {{-- permissions --}}
-            <a href="#" class="block border-b py-2 px-4 text-sm hover:bg-gray-100">
+            <a href="{{ url('create') }}" class="block border-b py-2 px-4 text-sm hover:bg-gray-100">
                 <i class="fa-solid fa-user-plus text-blue-800 pr-1"></i>
                 Create user
             </a>

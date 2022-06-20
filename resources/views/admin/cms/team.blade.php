@@ -28,7 +28,7 @@
                 <th>Email</th>
                 <th>Action</th>
             </thead>
-            <tbody>
+            <tbody class="text-sm">
                 @if (count($team) > 0)
                     @foreach ($team as $item)
                         <tr>
