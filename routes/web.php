@@ -82,23 +82,14 @@ Route::controller(AccessControlController::class)
 
 // user management routes
 Route::group(['middleware'=>['auth','permission:access-admin']],function(){
-<<<<<<< HEAD
-    Route::get('users', 'AdminUsersController@users');
-    Route::get('user/edit/{id}', 'AdminUsersController@user_edit');
-=======
     Route::get('users', 'AdminUsersController@index');
     Route::get('user_edit/{id}', 'AdminUsersController@user_edit');
->>>>>>> 3e5424e20b856464f4cd35e5c85ec1c29dee8d46
     Route::patch('edit_user/{id}', 'AdminUsersController@update')->name('edit_user');
     Route::get('user_create', 'AdminUsersController@user_create');
     Route::post('create', 'AdminUsersController@create')->name('create_user');
     Route::get('delete_user/{id}', 'AdminUsersController@delete')->name('delete_user');
 });  
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 3e5424e20b856464f4cd35e5c85ec1c29dee8d46
 // content managment system routes
 Route::group(['middleware'=>['auth','permission:access-admin']],function(){
     Route::get('content_manager','CmsController@index');
