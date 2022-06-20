@@ -1,7 +1,7 @@
 @extends('layouts.admin', [
     'title' => 'Our team',
     'breadcrumbs' => [
-        'CRM' => 'content_manager'
+        'CMS' => 'content_manager'
     ]
 ])
 

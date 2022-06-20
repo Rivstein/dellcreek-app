@@ -7,6 +7,9 @@
 
 @section('page')
 
+{{-- dev notice alert --}}
+@include('admin.alert.dev_notice',['devMessage' => 'The property list and unlist feature has issue #1541'])
+
 {{-- main --}}
 <div class="admin-card">
 

@@ -50,5 +50,8 @@
 
     </div>
 </div>
+
+{{-- Developement alert --}}
+@include('admin.alert.dev')
     
 @endsection

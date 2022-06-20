@@ -6,6 +6,11 @@
 
 @section('page')
 
+    {{-- dev notice alert --}}
+    @include('admin.alert.dev_notice',[
+        'devMessage' => 'Email features are offline, Development and security testing is still incomplete. issue #5412'
+        ])
+    
     {{-- request btn--}}
     <div class="flex space-x-4">
 
@@ -30,7 +35,7 @@
             </a>
         </div>
     </div>
-    
+
     {{-- table to show newsletter and contact  requests --}}
     <div class="my-5 bg-white border border-gray-500 rounded shadow-lg p-2">
         <table id="crmTable" class="display cell-border compact">

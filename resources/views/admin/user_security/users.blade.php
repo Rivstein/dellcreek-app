@@ -34,7 +34,7 @@
                                 </td>
                                 <td>{{ $user->phone_number }}</td>
                                 <td class="shadow-inner">
-                                    <a href="{{ url('edit/'.$user->id) }}">
+                                    <a href="{{ url('user/edit/'.$user->id) }}">
                                         <i class="fa-solid fa-screwdriver-wrench p-2 text-green-500"></i>
                                     </a>
                                 </td>

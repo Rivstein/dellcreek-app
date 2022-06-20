@@ -2,6 +2,7 @@
 
 @section('page')
 
+{{-- Developement alert --}}
+@include('admin.alert.dev')
 
-    
 @endsection

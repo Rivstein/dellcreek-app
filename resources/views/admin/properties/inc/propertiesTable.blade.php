@@ -43,13 +43,13 @@
                             @endif
                         </td>
                         <td>
-                            <a href="#" class="text-blue-800 underline">
+                            <a href="{{ url('user/edit/'.$property->createdBy->id) }}" class="text-blue-800 underline">
                                 {{ $property->createdBy->name }}
                             </a>
                         </td>
                         <td>
                             @isset($property->updatedBy->name)
-                                <a href="#" class="text-blue-800 underline">
+                                <a href="{{ url('user/edit/'.$property->updatedBy->id) }}" class="text-blue-800 underline">
                                     {{ $property->updatedBy->name }}
                                 </a>
                             @else

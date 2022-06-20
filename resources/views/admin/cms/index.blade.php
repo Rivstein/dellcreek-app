@@ -1,6 +1,15 @@
 @extends('layouts.admin ', ['title' => 'Content managment system'])
 
 @section('page')
+
+    {{-- dev notice alert --}}
+    @if (count($targetItems) == 0)
+        @include('admin.alert.dev_notice',[
+            'devMessage' => 'Please click actions in the right top conner and select run setup to hydrate web cms and get rid of this alert😀. issue #1062'
+            ])    
+    @endif
+    
+
     {{-- toolbar --}}
     <div class="flex justify-between items-center my-2">
         {{-- left content manager buttons --}}

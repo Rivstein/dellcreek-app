@@ -6,7 +6,9 @@
 ])
 
 @section('page')
-
+    {{-- Developement alert --}}
+    @include('admin.alert.dev')
+    
     {{-- action btn --}}
     <div class=" flex justify-end py-2">
         <button class="btn-primary btn-sm mr-2" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
