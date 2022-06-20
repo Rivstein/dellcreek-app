@@ -20,7 +20,7 @@
                 All users
             </a>
             {{-- permissions --}}
-            <a href="{{ url('create') }}" class="block border-b py-2 px-4 text-sm hover:bg-gray-100">
+            <a href="{{ url('user_create') }}" class="block border-b py-2 px-4 text-sm hover:bg-gray-100">
                 <i class="fa-solid fa-user-plus text-blue-800 pr-1"></i>
                 Create user
             </a>

@@ -14,10 +14,10 @@ class AdminUsersController extends Controller
     /**
      * Get all users page
      */
-    public function users()
+    public function index()
     {
         $users = User::all();
-        return view('admin.user_security.users', compact(
+        return view('admin.user_security.users.index', compact(
             'users'
         ));
     }
@@ -29,22 +29,8 @@ class AdminUsersController extends Controller
     {
         $roles = Role::all();
 
-        return view('admin.user_security.create', compact(
+        return view('admin.user_security.users.create', compact(
             'roles'
-        ));
-    }
-
-    /**
-     * Get edit user page
-     */
-    public function user_edit($id)
-    {
-        $user = User::find($id);
-        $roles = Role::all();
-
-        return view('admin.user_security.edit', compact(
-            'user',
-            'roles',
         ));
     }
 
@@ -78,6 +64,22 @@ class AdminUsersController extends Controller
 
         return redirect('users')->with('success-message', 'User ' . $user->name . ' has been created successfully');
     }
+
+    /**
+     * Get edit user page
+     */
+    public function user_edit($id)
+    {
+        $user = User::find($id);
+        $roles = Role::all();
+
+        return view('admin.user_security.users.edit', compact(
+            'user',
+            'roles',
+        ));
+    }
+
+    
 
     /**
      * Update user
@@ -127,12 +129,12 @@ class AdminUsersController extends Controller
         if ($request->method() == 'PATCH') {
             $rules = [
                 'name' => 'required',
-                'phone_number' => ['required', 'unique:users,phone_number,' . $id],
+                'phone_number' => ['required','unique:users,phone_number,'.$id],
             ];
         } else {
             $rules = [
                 'name' => 'required',
-                'phone_number' => ['required', 'unique:users'],
+                'phone_number' => ['required','unique:users'],
                 'email' => ['required', 'unique:users']
             ];
         }

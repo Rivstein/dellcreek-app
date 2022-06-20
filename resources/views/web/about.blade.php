@@ -117,7 +117,7 @@
                             </div>
                         @endforeach
                     @else
-                        Team members unavailable!
+                        Team members unavailable !
                     @endif
                 </div>
             </div>

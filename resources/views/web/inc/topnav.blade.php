@@ -3,7 +3,7 @@
 $menu_items = [
     'about_us' => 'About',
     'properties/all' => 'Properties',
-    'sell_property' => 'Sell',
+    // 'sell_property' => 'Sell',
     'contact' => 'Contact',
 ]
 @endphp

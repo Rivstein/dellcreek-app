@@ -82,17 +82,15 @@ Route::controller(AccessControlController::class)
 
 // user management routes
 Route::group(['middleware'=>['auth','permission:access-admin']],function(){
-    Route::get('users', 'AdminUsersController@users');
-    Route::get('edit/{id}', 'AdminUsersController@user_edit');
+    Route::get('users', 'AdminUsersController@index');
+    Route::get('user_edit/{id}', 'AdminUsersController@user_edit');
     Route::patch('edit_user/{id}', 'AdminUsersController@update')->name('edit_user');
-    Route::get('create', 'AdminUsersController@user_create');
+    Route::get('user_create', 'AdminUsersController@user_create');
     Route::post('create', 'AdminUsersController@create')->name('create_user');
     Route::get('delete_user/{id}', 'AdminUsersController@delete')->name('delete_user');
 });  
 
-<<<<<<< HEAD
-// Web Routes
-=======
+
 // content managment system routes
 Route::group(['middleware'=>['auth','permission:access-admin']],function(){
     Route::get('content_manager','CmsController@index');
@@ -108,7 +106,6 @@ Route::group(['middleware'=>['auth','permission:access-admin']],function(){
     Route::patch('team_manager/{id}','StaffController@update')->name('team_update');
     Route::get('team_delete/{id}','StaffController@delete')->name('team_delete');
 });
->>>>>>> 4c4a228134467491dd0d8008ba4ce47a05847738
 
 // web properties routes
 Route::controller(WebPropertiesController::class)->

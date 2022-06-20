@@ -62,12 +62,22 @@
         </div>
 
         {{-- links --}}
-        <div class="w-full md:w-2/12 py-5 md:px-5 px-3">
+        <div class="w-full md:w-2/12 py-5 md:px-5 px-3 text-sm">
             <h3 class="text-2xl my-3 font-ui-monospace font-bold">Useful links</h3>
             <ul>
                 <li class="my-4 flex">
                     <a href="{{ url('/') }}" class="hover:underline">
                         Home
+                    </a>
+                </li>
+                <li class="my-4 flex">
+                    <a href="{{ url('properties/all') }}" class="hover:underline">
+                        Properties
+                    </a>
+                </li>
+                <li class="my-4 flex">
+                    <a href="{{ url('contact') }}" class="hover:underline">
+                        Contact
                     </a>
                 </li>
             </ul>
