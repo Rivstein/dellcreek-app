@@ -14,6 +14,7 @@
         </div>
         <form action="{{ route('content_manager_upload',['id' => $section->id]) }}" method="POST">
             @csrf
+            @method('PATCH')
             <div class="my-4">
                 <label class="block">Content</label>
                 <textarea rows="5" class="form-input w-1/4" name="content" required>{{ $section->content }}</textarea>
@@ -23,6 +24,7 @@
                     Update Content
                 </button>
             </div>
+            <input type="hidden" name="updated_by" value="{{ auth()->user()->id }}">
         </form>
     </div>
 @endsection

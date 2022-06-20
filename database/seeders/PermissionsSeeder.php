@@ -34,6 +34,7 @@ class PermissionsSeeder extends Seeder
             'email' => 'superadmin@dellcreek.co.ke',
             'phone_number' => '0700000001',
             'email_verified_at' => now(),
+            'created_by' => '1',
             'password' => '$2y$10$m1vc6bYlR478A0gbdcx4retRQM6MJf2kzsOeM00.57EcNav7nPWsO', // password
             'remember_token' => Str::random(10),
         ]);

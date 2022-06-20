@@ -42,6 +42,11 @@
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
+=======
+            {{-- auth uploaded by --}}
+            <input type="hidden" name="updated_by" value="{{ auth()->user()->id }}">
+>>>>>>> 4c4a228134467491dd0d8008ba4ce47a05847738
             {{-- team member image --}}
              <div class="p-2 border-b border-b-gray-500">
                 <h1 class="text-lg font-bold mb-3">Member photo</h1>
