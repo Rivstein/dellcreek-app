@@ -24,16 +24,6 @@ class StaffController extends Controller
         return view('admin.cms.team_create');
     }
 
-    // edit page
-    public function edit($id)
-    {  
-        $team = Staff::find($id);
-
-        return view('admin.cms.team_edit', compact(
-            'team'
-        ));
-    }
-
     /**
      * Create a new team member
      */
@@ -44,11 +34,22 @@ class StaffController extends Controller
         // store main photo and return path
         $path = $request->file('photo')->store('public/staff');
         $data['photo'] = explode('public/', $path)[1];
+        $data['created_by'] = auth()->user()->id;        
 
         // create data in staff table
         Staff::create($data);
 
         return redirect('content_manager_team')->with('success-message','Team member created successfully');
+    }
+
+    // edit page
+    public function edit($id)
+    {  
+        $team = Staff::find($id);
+
+        return view('admin.cms.team_edit', compact(
+            'team'
+        ));
     }
 
     /**
@@ -63,6 +64,8 @@ class StaffController extends Controller
             $path = $request->file('photo')->store('public/staff');
             $data['photo'] = explode('public/', $path)[1];
         }
+
+        $data['updated_by'] = auth()->user()->id;
 
         // update row in staff table by id
         Staff::find($id)->update($data);

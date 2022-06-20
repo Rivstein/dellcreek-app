@@ -26,6 +26,8 @@ class CreatePropertiesTable extends Migration
             $table->string('location');
             $table->boolean('listed')->default(true);
             $table->boolean('hasTitle')->default(false);
+            $table->foreignId('created_by');
+            $table->foreignId('updated_by')->nullable();
             $table->timestamps();
         });
     }

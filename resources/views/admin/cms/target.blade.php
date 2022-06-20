@@ -18,6 +18,7 @@
                     <th>Name</th>
                     <th>Content</th>
                     <th>URL</th>
+                    <th>Updated by</th>
                     <th>Actions</th>
                 </thead>
                 <tbody>
@@ -30,6 +31,11 @@
                             <td>
                                 <a href="{{ $webContent->url }}" class="text-blue-500 font-xs underline">
                                     {{ $webContent->url }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="#" class="text-blue-800 underline">
+                                    {{ $webContent->updatedBy->name ?? '' }}
                                 </a>
                             </td>
                             <td class="shadow-inner">

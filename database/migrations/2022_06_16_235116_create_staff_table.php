@@ -18,10 +18,11 @@ class CreateStaffTable extends Migration
             $table->string('name')->unique();
             $table->string('position');
             $table->string('phone_number')->unique();
-            $table->string('whatsapp_number');
+            $table->string('whatsapp_number')->nullable();
             $table->string('email')->unique();
             $table->string('photo');
-            $table->foreignId('updated_by');
+            $table->foreignId('created_by');
+            $table->foreignId('updated_by')->nullable();
             $table->timestamps();
         });
     }

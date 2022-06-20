@@ -14,4 +14,12 @@ class WebCms extends Model
      */
 
     protected $guarded = [];
+
+    /**
+     * Get user who updated this staff.
+     */
+    public function updatedBy()
+    {
+        return $this->belongsTo(User::class, 'updated_by');
+    }
 }

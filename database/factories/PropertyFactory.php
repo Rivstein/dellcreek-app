@@ -24,7 +24,8 @@ class PropertyFactory extends Factory
             'image' => 'properties/Omrsuz9V3a5KjR9BnBeenKgy8jDYMVvvr1xlwErQ.jpg',
             'location' => $this->faker->text(50),
             'listed' => $this->faker->randomElement([0, 1]),
-            'hasTitle' => $this->faker->randomElement([0, 1])        
+            'hasTitle' => $this->faker->randomElement([0, 1]),
+            'created_by' => 1        
         ],$county);
     }
 

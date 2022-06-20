@@ -2,12 +2,14 @@
 <div class="my-5 bg-white border border-gray-500 rounded shadow-lg p-2">
     <table id="myTable" class="display cell-border compact">
         <thead>
-            <th>Name</th>
-            <th>Title deed</th>
-            <th>Price</th>
-            <th>Size</th>
-            <th>Status</th>
-            <th>Actions</th>
+            <th class="border border-gray-500">Name</th>
+            <th class="border border-gray-500">Title deed</th>
+            <th class="border border-gray-500">Price</th>
+            <th class="border border-gray-500">Size</th>
+            <th class="border border-gray-500">Status</th>
+            <th class="border border-gray-500">Created by</th>
+            <th class="border border-gray-500">Updated by</th>
+            <th class="border border-gray-500">Actions</th>
         </thead>
         <tbody>
             @if (isset($properties) && count($properties) > 0)
@@ -39,6 +41,20 @@
                                     Unlisted
                                 </div>
                             @endif
+                        </td>
+                        <td>
+                            <a href="#" class="text-blue-800 underline">
+                                {{ $property->createdBy->name }}
+                            </a>
+                        </td>
+                        <td>
+                            @isset($property->updatedBy->name)
+                                <a href="#" class="text-blue-800 underline">
+                                    {{ $property->updatedBy->name }}
+                                </a>
+                            @else
+                                No changes made  
+                            @endisset
                         </td>
                         <td>
                             <a href="{{ url('admin/properties/property/'.$property->id) }}" class="btn-primary text-xs p-1">

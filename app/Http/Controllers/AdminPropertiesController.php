@@ -71,6 +71,8 @@ class AdminPropertiesController extends Controller
         $path = $request->file('image')->store('public/properties');
         $data['image'] = explode('public/', $path)[1];
 
+        $data['created_by'] = auth()->user()->id;
+
         $property = Property::create($data);
 
         if ($request->file('images') != null) {
@@ -79,7 +81,8 @@ class AdminPropertiesController extends Controller
                 $storage_path = explode('public/', $path)[1];
                 PropertyImage::create([
                     'property_id' => $property->id,
-                    'path' => $storage_path
+                    'path' => $storage_path,
+                    'created_by' => auth()->user()->id
                 ]);
             }
         }
@@ -102,6 +105,8 @@ class AdminPropertiesController extends Controller
         $this->validator($request);
         $property = Property::find($id);
         $property->update($request->all());
+        $property->updated_by = auth()->user()->id;
+        $property->save();
         return redirect('admin/properties/property/'.$property->id)->with('info-message','Property details updated successfully, manage property below');
     }
 
@@ -111,6 +116,7 @@ class AdminPropertiesController extends Controller
         $property = Property::find($property_id);
         $path = $request->file('image')->store('public/properties');
         $property->image = explode('public/', $path)[1];
+        $property->updated_by = auth()->user()->id;
         $property->save();
         return back()->with('success-message','Property main image replaced');
     }
@@ -139,7 +145,8 @@ class AdminPropertiesController extends Controller
         $storage_path = explode('public/', $path)[1];
         PropertyImage::create([
             'property_id' => $property_id,
-            'path' => $storage_path
+            'path' => $storage_path,
+            'created_by' => auth()->user()->id
         ]);
         return back()->with('success-message','New property image uploaded successfully');
     }

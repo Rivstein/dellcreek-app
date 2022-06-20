@@ -94,14 +94,9 @@ Route::get('team_manager/{id}','StaffController@edit');
 Route::patch('team_manager/{id}','StaffController@update')->name('team_update');
 Route::get('team_delete/{id}','StaffController@delete')->name('team_delete');
 
-<<<<<<< HEAD
 // Web Routes
 
 // web properties routes
-=======
-
-// Web Routes 
->>>>>>> 1a1e6b6cb3f3c08899b9e75b07699fbc0f3a71b6
 Route::controller(WebPropertiesController::class)->
         prefix('properties')->as('properties.')
 ->group(function () {

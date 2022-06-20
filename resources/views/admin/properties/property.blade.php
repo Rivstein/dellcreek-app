@@ -130,6 +130,28 @@
                     {{ $property->name }}    
                 </div>
             </div>
+            {{-- name --}}
+            <div class="mb-3">
+                <div class="font-bold">Created by</div>
+                <div class="text-sm px-2">
+                    <a href="#" class="text-blue-800 underline">
+                        {{ $property->createdBy->name }}
+                    </a>    
+                </div>
+            </div>
+            {{-- name --}}
+            <div class="mb-3">
+                <div class="font-bold">Updated by</div>
+                <div class="text-sm px-2">
+                    @isset($property->updatedBy->name)
+                        <a href="#" class="text-blue-800 underline">
+                            {{ $property->updatedBy->name }}
+                        </a>
+                    @else
+                        No changes made
+                    @endisset
+                </div>
+            </div>
             {{-- image --}}
             <div class="mb-3">
                 <div class="font-bold">Main image</div>

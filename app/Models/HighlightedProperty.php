@@ -18,4 +18,20 @@ class HighlightedProperty extends Model
     {
         return $this->belongsTo(Property::class);
     }
+
+    /**
+     * Get user who created this staff.
+     */
+    public function createdBy()
+    {
+        return $this->belongsTo(User::class, 'created_by');
+    }
+
+    /**
+     * Get user who updated this staff.
+     */
+    public function updatedBy()
+    {
+        return $this->belongsTo(User::class, 'updated_by');
+    }
 }

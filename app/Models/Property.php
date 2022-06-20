@@ -34,4 +34,20 @@ class Property extends Model
     {
         return $this->belongsToMany(User::class, 'property_watch');
     }
+
+    /**
+     * Get user who created this staff.
+     */
+    public function createdBy()
+    {
+        return $this->belongsTo(User::class, 'created_by');
+    }
+
+    /**
+     * Get user who updated this staff.
+     */
+    public function updatedBy()
+    {
+        return $this->belongsTo(User::class, 'updated_by');
+    }
 }

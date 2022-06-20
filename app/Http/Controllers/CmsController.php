@@ -71,6 +71,8 @@ class CmsController extends Controller
     {
         $section = WebCms::find($id);
         $section->update($request->all());
+        $section->updated_by = auth()->user()->id;
+        $section->save();
         return redirect('content_manager/'.$section->target)->with('info-message','Section Updated');
     }
 

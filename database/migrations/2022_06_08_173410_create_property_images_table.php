@@ -17,6 +17,7 @@ class CreatePropertyImagesTable extends Migration
             $table->id();
             $table->foreignId('property_id');
             $table->string('path');
+            $table->foreignId('created_by');
             $table->timestamps();
         });
     }
