@@ -39,6 +39,11 @@
                 <i class="fa-solid fa-user-group pr-2"></i>
                 Our Team
             </a>
+            {{-- counties images --}}
+            <a href="{{ url('dev') }}" type="button" class="btn-secondary btn-sm ml-2">
+                <i class="fa-solid fa-image pr-2"></i>
+                County images <sup class="text-red-600">Beta</sup>
+            </a>
         </div>
 
         {{-- right content manager buttons --}}

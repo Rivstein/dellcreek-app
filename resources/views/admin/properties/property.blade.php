@@ -101,7 +101,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('admin/properties/listing/'.$property->id) }}" class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100">
+                        {{-- {{ url('admin/properties/listing/'.$property->id) }} --}}
+                        <a href="{{ url('dev') }}" class="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100">
                             @if ($property->listed)
                                 <i class="fa-solid fa-circle-xmark pr-2 text-red-600"></i>
                                 Unlist property    

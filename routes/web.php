@@ -21,6 +21,8 @@ Route::group(['middleware'=>['auth','permission:access-admin']],function(){
     Route::get('dashboard','DashboardController@index');
 });
 
+// dev route
+Route::get('dev','DashboardController@dev');
 
 // admin properties route group
 Route::controller(AdminPropertiesController::class)

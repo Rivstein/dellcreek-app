@@ -16,21 +16,21 @@
 
         {{-- site visit --}}
         <div>
-            <a href="{{ url('#') }}" class="btn-secondary">
+            <a href="{{ url('dev') }}" class="btn-secondary">
                 <span>Site Visit Requests</span>
             </a>
         </div>
 
         {{-- newsletter --}}
         <div>
-            <a href="{{ url('#') }}" class="btn-secondary">
+            <a href="{{ url('dev') }}" class="btn-secondary">
                 <span>Newsletter Requests</span>
             </a>
         </div>
 
         {{-- contact --}}
         <div>
-            <a href="{{ url('#') }}" class="btn-secondary">
+            <a href="{{ url('dev') }}" class="btn-secondary">
                 <span>Contact Requests</span>
             </a>
         </div>

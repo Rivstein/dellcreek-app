@@ -10,4 +10,12 @@ class DashboardController extends Controller
     {
         return view('admin.dashboard');
     }
+
+    /**
+     * Dev redirect back : under development
+     */
+    public function dev()
+    {
+        return back()->with('info-message','[#SYS:Notice] Module under development');
+    }
 }
