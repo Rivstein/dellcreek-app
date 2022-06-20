@@ -40,25 +40,25 @@
     <div class="my-5 bg-white border border-gray-500 rounded shadow-lg p-2">
         <table id="crmTable" class="display cell-border compact">
             <thead>
-                <th>Name</th>
                 <th>Email</th>
+                <th>Message</th>
                 <th>Contact</th>
                 <th>Time</th>
                 <th>Type</th>
-                <th>Actions</th>
             </thead>
-            <tbody>
+            <tbody class="text-sm">
                 @if(count($contacts) > 0 )
                     @foreach($contacts as $contact)
                         <tr>
-                            <td>{{$contact->name ?? 'N/A'}}</td>
-                            <td>{{$contact->email}}</td>
+                            <td class="text-blue-500">
+                                <a href="" class="hover:underline">
+                                    {{$contact->email}}
+                                </a>
+                            </td>
+                            <td>{{$contact->message}}</td>
                             <td>{{$contact->phone_number}}</td>
                             <td>{{$contact->created_at->diffForHumans()}}</td>
                             <td>{{$contact->type}}</td>
-                            <td>
-
-                            </td>
                         </tr>
                     @endforeach    
                 

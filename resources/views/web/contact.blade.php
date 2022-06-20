@@ -84,9 +84,9 @@
                             <label for="">Message</label>
                             <textarea name="message" id="" rows="6" class="form-input" placeholder="type message here..." required></textarea>
                         </div>
-                        <button class="btn-warning w-full text-white justify-center my-2 p-2" type="submit">
+                        <button class="btn-warning w-full text-black justify-center my-2 p-2" type="submit">
                              Send message
-                             <i class="fa-solid fa-message pl-2"></i>
+                             <i class="pl-2 fa-solid fa-arrow-right"></i>
                         </button>
                     </form>
                 </div>

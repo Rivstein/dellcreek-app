@@ -85,7 +85,7 @@ array_push($counties, $county_name->county);
     <div class="w-full mx-0">
         {{-- title --}}
         <h1 class="text-center text-3xl pt-10 mb-10 font-bold">
-            Properties for sell
+            Properties for sale
             @if(isset($county) && $county)
                 in {{ $county }} county
             @endif

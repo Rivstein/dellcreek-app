@@ -31,9 +31,9 @@
                                 Discover
                             </a>
                             {{-- item --}}
-                            <a href="#"
+                            <a href="{{ url('contact') }}"
                                 class="bg-white hover:shadow-md hover:shadow-yellow-700 ml-3 border-solid border border-yellow-600 rounded-md font-bold shadow px-8 py-2">
-                                Sell Property
+                                Contact us
                             </a>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
     {{-- properties --}}
     <div class="w-full mx-0 bg-gradient-to-t from-gray-100 md:px-8 px-3">
         {{-- title --}}
-        <h1 class="text-center text-3xl pt-10 mb-10 font-bold">Properties for sell</h1>
+        <h1 class="text-center text-3xl pt-10 mb-10 font-bold">Properties for sale</h1>
 
         @if (count($properties) > 0)
 

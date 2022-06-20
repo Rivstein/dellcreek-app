@@ -23,13 +23,16 @@
                     <button class="btn-warning w-full justify-center">
                         <i class="fa fa-star text-green-500 pr-2"></i>
                         Property Recommendations
+                        <sup class="text-red-600 font-bold">
+                            Beta
+                        </sup>
                     </button>
                 </div>
 
                 {{-- properties notification btn --}}
-                <div class="my-4">
+                {{-- <div class="my-4">
                     -- NOTIFICATIONS --
-                </div>
+                </div> --}}
             </div>
 
             {{-- right --}}
